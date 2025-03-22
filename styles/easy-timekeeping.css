@@ -161,7 +161,6 @@
 [id^=jd-et-uipanel] .window-header {
   /* background: var(--background-color); */
   background: black;
-  font-family: QTFrizQuad;
   border-bottom: unset;
 }
 
