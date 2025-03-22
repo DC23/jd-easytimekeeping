@@ -12,7 +12,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
     static ID = 'jd-et-uipanel'
     static DEFAULT_OPTIONS = {
         tag: 'div',
-        classes: ['ui-panel', 'app', 'fade-element', 'receive-pointer-events'],
+        classes: ['ui-panel', 'fade-element', 'receive-pointer-events'],
         id: UIPanel.ID,
         window: {
             frame: false,
