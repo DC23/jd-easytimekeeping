@@ -209,8 +209,13 @@ export class Timekeeper {
     }
 
     /**
-     * Factors a time in total minutes into a time object
+     * Factors a time in total minutes into a time object. 
+     * This API method has no side-effects, and does not change the internal 
+     * time state.
+     * 
+     * @param {number} totalMinutes The total number of minutes since 0:00 on day 0
      * @returns {timeAugmented}
+     * @public
      */
     factorTime (totalMinutes) {
         const time = {}
