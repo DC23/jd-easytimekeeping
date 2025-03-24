@@ -1,0 +1,61 @@
+name: factorTime
+type: script
+author: 5csdu5LeMVsdxR5m
+img: icons/magic/time/clock-analog-gray.webp
+scope: global
+command: >-
+  /*
+
+  Testing the API function to factor a number in total minutes into a
+  timeAugmented data object.
+
+
+  See:
+  https://github.com/DC23/jd-easytimekeeping/blob/main/documentation/timekeeper.md#timeaugmented
+
+
+  One use is to accurately calculate a future time. I'm using this in my
+  Traveller game to work out the end date of a Jump based on the current time
+  and day and the jump duration of 6d6+148 hours.
+
+  */
+
+
+  // Calculate the duration of Traveller jump. It's 6d6+148 hours
+
+  let jumpDurationHours = await new Roll('6d6+148').evaluate()
+
+
+  // the jump duration in minutes (60 minutes to an hour)
+
+  const jumpDurationMinutes = jumpDurationHours.total * 60
+
+
+  // The duration in whole minutes is good, but it's easier to display in days,
+  hours and minutes
+
+  const duration =
+  game.modules.get('jd-easytimekeeping').api.factorTime(jumpDurationMinutes)
+
+
+  ui.notifications.notify(`The jump will take ${duration.days} days,
+  ${duration.hours} hours.`)
+folder: Yfu68cdycaDj0W5C
+ownership:
+  default: 0
+  o6GlVGWTkBeVyzwZ: 3
+  5csdu5LeMVsdxR5m: 3
+flags: {}
+_stats:
+  compendiumSource: null
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: worldbuilding
+  systemVersion: 0.8.2
+  createdTime: 1742795913110
+  modifiedTime: 1742795913110
+  lastModifiedBy: 5csdu5LeMVsdxR5m
+_id: zHmkPnrJATg9i93I
+sort: 0
+_key: '!macros!zHmkPnrJATg9i93I'
+
