@@ -40,7 +40,7 @@ export class Timekeeper {
      * This is one of the set `[Dawn, Day, Dusk, Night]`, but localized.
      */
     getPhaseOfDay () {
-        return DaylightCycle.getPhaseOfDay(this.#factorTime(this.#totalElapsedMinutes))
+        return DaylightCycle.getPhaseOfDay(this.factorTime(this.#totalElapsedMinutes))
     }
 
     /**
@@ -91,7 +91,7 @@ export class Timekeeper {
             return false
         }
 
-        return this.#factorTime(this.#totalElapsedMinutes)
+        return this.factorTime(this.#totalElapsedMinutes)
     }
 
     /**
@@ -106,7 +106,7 @@ export class Timekeeper {
             return false
         }
 
-        return Helpers.toTimeString(this.#factorTime(this.#totalElapsedMinutes), includeDay)
+        return Helpers.toTimeString(this.factorTime(this.#totalElapsedMinutes), includeDay)
     }
 
     /**
@@ -120,7 +120,7 @@ export class Timekeeper {
             return false
         }
 
-        const currentTime = this.#factorTime(this.#totalElapsedMinutes)
+        const currentTime = this.factorTime(this.#totalElapsedMinutes)
         TimeTeller.tellTime(currentTime)
     }
 
@@ -146,8 +146,8 @@ export class Timekeeper {
 
         // don't decrement time earlier than time 0
         const newMinutes = Math.max(0, this.#totalElapsedMinutes + minutes)
-        const oldTime = this.#factorTime(this.#totalElapsedMinutes)
-        const newTime = this.#factorTime(newMinutes)
+        const oldTime = this.factorTime(this.#totalElapsedMinutes)
+        const newTime = this.factorTime(newMinutes)
         console.debug('JD ETime | Current time %o', oldTime)
         console.log('JD ETime | Incrementing to new time %o', newTime)
         this.#setTotalElapsedMinutes(newMinutes)
@@ -162,8 +162,8 @@ export class Timekeeper {
      */
     #set (totalMinutes = 0) {
         if (totalMinutes >= 0) {
-            const oldTime = this.#factorTime(this.#totalElapsedMinutes)
-            const newTime = this.#factorTime(totalMinutes)
+            const oldTime = this.factorTime(this.#totalElapsedMinutes)
+            const newTime = this.factorTime(totalMinutes)
             console.debug('JD ETime | Current time %o', oldTime)
             console.log('JD ETime | Setting new time %o', newTime)
             this.#setTotalElapsedMinutes(totalMinutes)
@@ -212,7 +212,7 @@ export class Timekeeper {
      * Factors a time in total minutes into a time object
      * @returns {timeAugmented}
      */
-    #factorTime (totalMinutes) {
+    factorTime (totalMinutes) {
         const time = {}
 
         time.totalMinutes = totalMinutes
