@@ -97,6 +97,7 @@ export class Timekeeper {
     /**
      * Gets the current time as a formatted string.
      *
+     * @public
      * @param {boolean} includeDay Determines whether the current day is included in the string
      * @returns {string} the current time as a formatted string suitable for display
      */
