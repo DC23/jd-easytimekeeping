@@ -1,0 +1,47 @@
+name: formatTime
+type: script
+author: 5csdu5LeMVsdxR5m
+img: icons/magic/time/clock-stopwatch-white-blue.webp
+scope: global
+command: >-
+  /*
+
+  The API has several functions for getting the time. 
+
+
+  formatTime formats an arbitrary number of minutes since midnight on day 0 as a
+  formatted string. 
+
+  */
+
+
+  // The new formatTime method
+
+  const ftime = game.modules.get('jd-easytimekeeping').api.formatTime(1003)
+
+  ui.notifications.notify(ftime)
+
+
+  const ftimeDay = game.modules.get('jd-easytimekeeping').api.formatTime(1003,
+  true)
+
+  ui.notifications.notify(ftimeDay)
+folder: Yfu68cdycaDj0W5C
+ownership:
+  default: 0
+  o6GlVGWTkBeVyzwZ: 3
+  5csdu5LeMVsdxR5m: 3
+flags: {}
+_stats:
+  compendiumSource: null
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: worldbuilding
+  systemVersion: 0.8.2
+  createdTime: 1742904891904
+  modifiedTime: 1742904891904
+  lastModifiedBy: 5csdu5LeMVsdxR5m
+_id: NLPgvznHUMEUtZ2w
+sort: 0
+_key: '!macros!NLPgvznHUMEUtZ2w'
+
