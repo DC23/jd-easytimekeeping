@@ -111,23 +111,24 @@ export class Timekeeper {
     }
 
     /**
-     * Posts the current time to chat.
+     * Posts the time as a formatted chat message
      *
      * @public
+     * @param {time} [time=null] the optional time to post. If not supplied, then the current time is displayed.
      */
-    tellTime () {
+    tellTime (time) {
         if (!Helpers.showExactTime) {
             ui.notifications.warn(game.i18n.localize('JDTIMEKEEPING.NoPermission'))
             return false
         }
 
-        const currentTime = this.factorTime(this.#totalElapsedMinutes)
-        TimeTeller.tellTime(currentTime)
+        const timeToTell = time || this.factorTime(this.#totalElapsedMinutes)
+        TimeTeller.tellTime(timeToTell)
     }
 
     /**
      * Factors a time object into game turns, shifts and days
-     * @property {number} totalMinutes total elapsed minutes since 12am on day 0
+     * @param {number} totalMinutes total elapsed minutes since 12am on day 0
      * @returns {gameTurnTime} `totalMinutes` factored into game turns, shifts, days and weeks
      * @public
      */

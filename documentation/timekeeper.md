@@ -82,17 +82,17 @@ Returns **[string][22]** the current time as a formatted string suitable for dis
 
 ### tellTime
 
-Posts the current time to chat.
+Posts the time as a formatted chat message
+
+#### Parameters
+
+*   `time` **[time][10]** the optional time to post. If not supplied, then the current time is displayed. (optional, default `null`)
 
 ### factorGameTurns
 
 Factors a time object into game turns, shifts and days
 
 #### Parameters
-
-*   `totalMinutes` &#x20;
-
-#### Properties
 
 *   `totalMinutes` **[number][24]** total elapsed minutes since 12am on day 0
 
@@ -212,27 +212,27 @@ Constants used in time calculations.
 
 [10]: #time
 
-[11]: #properties-1
+[11]: #properties
 
 [12]: #timeaugmented
 
-[13]: #properties-2
+[13]: #properties-1
 
 [14]: #daydata
 
-[15]: #properties-3
+[15]: #properties-2
 
 [16]: #timechangedata
 
-[17]: #properties-4
+[17]: #properties-3
 
 [18]: #gameturntime
 
-[19]: #properties-5
+[19]: #properties-4
 
 [20]: #constants
 
-[21]: #properties-6
+[21]: #properties-5
 
 [22]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 

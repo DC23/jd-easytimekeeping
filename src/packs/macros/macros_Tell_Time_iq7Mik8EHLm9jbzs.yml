@@ -1,0 +1,100 @@
+folder: Yfu68cdycaDj0W5C
+name: Tell Time
+type: script
+author: 5csdu5LeMVsdxR5m
+img: icons/svg/silenced.svg
+scope: global
+command: >-
+  /*
+
+  Posts the current time to chat. 
+
+  This API function does exactly the same thing as the chat button on the UI.
+
+  If a user doesn't have permission to see the time, they'll just get a warning.
+
+  */
+
+  game.modules.get('jd-easytimekeeping').api.tellTime()
+
+
+
+  /*
+
+  The tellTime API method also takes a time or timeAugmented data object as an
+  optional parameter.
+
+  If it receives one, it will display that time as a formatted chat message
+  instead of the current time.
+
+
+  It can be tricky to correctly build one of the data objects by hand due to all
+  the integer math that 
+
+  needs to be just right. The most common way I've used them is for calculating
+  differences between times,
+
+  often as an offset from the current time. The safest way is to get the
+  starting point, convert everything
+
+  into minutes and do the addition or subtraction, then use the factorTime API
+  method to convert the total
+
+  number of minutes since 12am on day 0 to a timeAugmented object which can be
+  posted to chat.
+
+
+  It's much simpler than it sounds. Here's an example that calculates the
+  duration in hours of a jump in 
+
+  the Traveller RPG, converts that to minutes, adds the duration to the current
+  time, then posts the expected
+
+  end time of the jump as a chat message.
+
+  */
+
+
+  // Calculate a random jump duration in hours for Mongoose Traveller using a
+  Foundry dice roll
+
+  const jumpDurationHours = await new Roll('6d6+148').evaluate()  
+
+  const jumpDurationMinutes = jumpDurationHours.total * 60  // 60 minutes to an
+  hour
+
+
+  // get the current time
+
+  let time = await game.modules.get('jd-easytimekeeping').api.getTime()
+
+
+  // add the jump duration in minutes to the current time in total minutes since
+  12am on day 0
+
+  // and factor that into a timeAugmented object
+
+  time = game.modules.get('jd-easytimekeeping').api.factorTime(time.totalMinutes
+  + jumpDurationMinutes)
+
+
+  // display the time to chat
+
+  game.modules.get('jd-easytimekeeping').api.tellTime(time)
+ownership:
+  default: 0
+  5csdu5LeMVsdxR5m: 3
+flags: {}
+_stats:
+  compendiumSource: null
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: worldbuilding
+  systemVersion: 0.8.2
+  createdTime: 1742903344675
+  modifiedTime: 1742903344675
+  lastModifiedBy: 5csdu5LeMVsdxR5m
+_id: iq7Mik8EHLm9jbzs
+sort: 0
+_key: '!macros!iq7Mik8EHLm9jbzs'
+
