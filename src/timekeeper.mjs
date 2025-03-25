@@ -307,6 +307,6 @@ export class Timekeeper {
  * @property {number} shifts the current shift out of the 4 shifts per day. 0-based, range [0..3]
  * @property {number} turns the current game turn within the current shift. 0-based indexing
  * @property {dayData} day additional metadata about the day of the week
- * @property {number} weekNumber 1-based number of 7-day weeks that have elapsed, including the current partial week.
+ * @property {number} weekNumber 1-based number of n-day weeks that have elapsed, including the current partial week. The Number of days in a week has the range [5..14] with a default of 7. This value is set by the GM in the module settings.
  * @property {string} shiftName the name of the current shift, based on world settings.
  */
