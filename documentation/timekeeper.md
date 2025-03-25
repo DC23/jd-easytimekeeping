@@ -7,21 +7,22 @@
     *   [increment][3]
     *   [set][4]
     *   [getTime][5]
-    *   [tellTime][6]
-    *   [factorGameTurns][7]
-    *   [factorTime][8]
-*   [time][9]
-    *   [Properties][10]
-*   [timeAugmented][11]
-    *   [Properties][12]
-*   [dayData][13]
-    *   [Properties][14]
-*   [timeChangeData][15]
-    *   [Properties][16]
-*   [gameTurnTime][17]
-    *   [Properties][18]
-*   [Constants][19]
-    *   [Properties][20]
+    *   [toTimeString][6]
+    *   [tellTime][7]
+    *   [factorGameTurns][8]
+    *   [factorTime][9]
+*   [time][10]
+    *   [Properties][11]
+*   [timeAugmented][12]
+    *   [Properties][13]
+*   [dayData][14]
+    *   [Properties][15]
+*   [timeChangeData][16]
+    *   [Properties][17]
+*   [gameTurnTime][18]
+    *   [Properties][19]
+*   [Constants][20]
+    *   [Properties][21]
 
 ## Timekeeper
 
@@ -38,7 +39,7 @@ set to the night value. During dawn, lighting is gradually changed
 from the night to the day values, while during dusk, the lighting
 changes from the day to night values.
 
-Returns **[string][21]** the localised name of the day phase.
+Returns **[string][22]** the localised name of the day phase.
 This is one of the set `[Dawn, Day, Dusk, Night]`, but localized.
 
 ### increment
@@ -48,9 +49,9 @@ You must be a GM to run this function.
 
 #### Parameters
 
-*   `time` **[time][9]** the time step to increment or decrement
+*   `time` **[time][10]** the time step to increment or decrement
 
-Returns **[timeChangeData][15]** if the time was changed, otherwise `false`.
+Returns **[timeChangeData][16]** if the time was changed, otherwise `false`.
 
 ### set
 
@@ -59,15 +60,25 @@ You must be a GM to run this function.
 
 #### Parameters
 
-*   `time` **[time][9]** the time to set
+*   `time` **[time][10]** the time to set
 
-Returns **[timeChangeData][15]** if the time was changed, otherwise `false`.
+Returns **[timeChangeData][16]** if the time was changed, otherwise `false`.
 
 ### getTime
 
 Gets the current time.
 
-Returns **[timeAugmented][11]** the current time
+Returns **[timeAugmented][12]** the current time
+
+### toTimeString
+
+Gets the current time as a formatted string.
+
+#### Parameters
+
+*   `includeDay` **[boolean][23]** Determines whether the current day is included in the string (optional, default `false`)
+
+Returns **[string][22]** the current time as a formatted string suitable for display
 
 ### tellTime
 
@@ -83,9 +94,9 @@ Factors a time object into game turns, shifts and days
 
 #### Properties
 
-*   `totalMinutes` **[number][22]** total elapsed minutes since 12am on day 0
+*   `totalMinutes` **[number][24]** total elapsed minutes since 12am on day 0
 
-Returns **[gameTurnTime][17]** `totalMinutes` factored into game turns, shifts, days and weeks
+Returns **[gameTurnTime][18]** `totalMinutes` factored into game turns, shifts, days and weeks
 
 ### factorTime
 
@@ -95,74 +106,74 @@ time state.
 
 #### Parameters
 
-*   `totalMinutes` **[number][22]** The total number of minutes since 0:00 on day 0
+*   `totalMinutes` **[number][24]** The total number of minutes since 0:00 on day 0
 
-Returns **[timeAugmented][11]**&#x20;
+Returns **[timeAugmented][12]**&#x20;
 
 ## time
 
 A time object used for inputting time values to the Easy Timekeeping API
 
-Type: [Object][23]
+Type: [Object][25]
 
 ### Properties
 
-*   `days` **[number][22]** days since day 0
-*   `hours` **[number][22]** hour of the day in 24-hour time, range \[0..23]
-*   `minutes` **[number][22]** minute of the hour, range \[0..59]
+*   `days` **[number][24]** days since day 0
+*   `hours` **[number][24]** hour of the day in 24-hour time, range \[0..23]
+*   `minutes` **[number][24]** minute of the hour, range \[0..59]
 
 ## timeAugmented
 
 An augmented time object used when values are returned from the Easy Timekeeping API
 
-Type: [Object][23]
+Type: [Object][25]
 
 ### Properties
 
-*   `days` **[number][22]** days since day 0
-*   `hours` **[number][22]** hour of the day in 24-hour time, range \[0..23]
-*   `minutes` **[number][22]** minute of the hour, range \[0..59]
-*   `totalMinutes` **[number][22]** total elapsed minutes since 12am on day 0
-*   `weekNumber` **[number][22]** 1-based number of 7-day weeks that have elapsed, including the current partial week.
-*   `day` **[dayData][13]** additional metadata about the day of the week
+*   `days` **[number][24]** days since day 0
+*   `hours` **[number][24]** hour of the day in 24-hour time, range \[0..23]
+*   `minutes` **[number][24]** minute of the hour, range \[0..59]
+*   `totalMinutes` **[number][24]** total elapsed minutes since 12am on day 0
+*   `weekNumber` **[number][24]** 1-based number of 7-day weeks that have elapsed, including the current partial week.
+*   `day` **[dayData][14]** additional metadata about the day of the week
 
 ## dayData
 
 Day data
 
-Type: [Object][23]
+Type: [Object][25]
 
 ### Properties
 
-*   `index` **[number][22]** 1-based number of the day of the week, starting with Monday. Each week is fixed at 7 days.
-*   `name` **[string][21]** the name of the current day of the week, based on the current world settings.
+*   `index` **[number][24]** 1-based number of the day of the week, starting with Monday. Each week is fixed at 7 days.
+*   `name` **[string][22]** the name of the current day of the week, based on the current world settings.
 
 ## timeChangeData
 
 Time change object returned from the Easy Timekeeping API
 
-Type: [Object][23]
+Type: [Object][25]
 
 ### Properties
 
-*   `oldTime` **[timeAugmented][11]** the previous time
-*   `time` **[timeAugmented][11]** the new time
+*   `oldTime` **[timeAugmented][12]** the previous time
+*   `time` **[timeAugmented][12]** the new time
 
 ## gameTurnTime
 
 Game turn time. This is used by the graphical clocks, and returned from API calls.
 
-Type: [Object][23]
+Type: [Object][25]
 
 ### Properties
 
-*   `totalGameTurns` **[number][22]** total number of elapsed game turns
-*   `days` **[number][22]** days since day 0
-*   `shifts` **[number][22]** the current shift out of the 4 shifts per day. 0-based, range \[0..3]
-*   `turns` **[number][22]** the current game turn within the current shift. 0-based indexing
-*   `day` **[dayData][13]** additional metadata about the day of the week
-*   `weekNumber` **[number][22]** 1-based number of 7-day weeks that have elapsed, including the current partial week.
-*   `shiftName` **[string][21]** the name of the current shift, based on world settings.
+*   `totalGameTurns` **[number][24]** total number of elapsed game turns
+*   `days` **[number][24]** days since day 0
+*   `shifts` **[number][24]** the current shift out of the 4 shifts per day. 0-based, range \[0..3]
+*   `turns` **[number][24]** the current game turn within the current shift. 0-based indexing
+*   `day` **[dayData][14]** additional metadata about the day of the week
+*   `weekNumber` **[number][24]** 1-based number of 7-day weeks that have elapsed, including the current partial week.
+*   `shiftName` **[string][22]** the name of the current shift, based on world settings.
 
 ## Constants
 
@@ -170,16 +181,16 @@ Constants used in time calculations.
 
 ### Properties
 
-*   `secondsPerDay` **[number][22]** The number of seconds in a day.
-*   `minutesPerDay` **[number][22]** The number of minutes in a day.
-*   `hoursPerDay` **[number][22]** The number of hours in a day.
-*   `shiftsPerDay` **[number][22]** The number of shifts in a day.
-*   `minutesPerShift` **[number][22]** The number of minutes in a shift.
-*   `hoursPerShift` **[number][22]** The number of hours in a shift.
-*   `daysPerWeek` **[number][22]** The number of days in a week.
-*   `minutesPerTurn` **[number][22]** The number of minutes in a game turn. Will vary by current module settings.
-*   `turnsPerShift` **[number][22]** The number of game turns per shift. Will vary by current module settings.
-*   `turnsPerDay` **[number][22]** The number of game turns per day. Will vary by current module settings.
+*   `secondsPerDay` **[number][24]** The number of seconds in a day.
+*   `minutesPerDay` **[number][24]** The number of minutes in a day.
+*   `hoursPerDay` **[number][24]** The number of hours in a day.
+*   `shiftsPerDay` **[number][24]** The number of shifts in a day.
+*   `minutesPerShift` **[number][24]** The number of minutes in a shift.
+*   `hoursPerShift` **[number][24]** The number of hours in a shift.
+*   `daysPerWeek` **[number][24]** The number of days in a week.
+*   `minutesPerTurn` **[number][24]** The number of minutes in a game turn. Will vary by current module settings.
+*   `turnsPerShift` **[number][24]** The number of game turns per shift. Will vary by current module settings.
+*   `turnsPerDay` **[number][24]** The number of game turns per day. Will vary by current module settings.
 
 [1]: #timekeeper
 
@@ -191,38 +202,42 @@ Constants used in time calculations.
 
 [5]: #gettime
 
-[6]: #telltime
+[6]: #totimestring
 
-[7]: #factorgameturns
+[7]: #telltime
 
-[8]: #factortime
+[8]: #factorgameturns
 
-[9]: #time
+[9]: #factortime
 
-[10]: #properties-1
+[10]: #time
 
-[11]: #timeaugmented
+[11]: #properties-1
 
-[12]: #properties-2
+[12]: #timeaugmented
 
-[13]: #daydata
+[13]: #properties-2
 
-[14]: #properties-3
+[14]: #daydata
 
-[15]: #timechangedata
+[15]: #properties-3
 
-[16]: #properties-4
+[16]: #timechangedata
 
-[17]: #gameturntime
+[17]: #properties-4
 
-[18]: #properties-5
+[18]: #gameturntime
 
-[19]: #constants
+[19]: #properties-5
 
-[20]: #properties-6
+[20]: #constants
 
-[21]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[21]: #properties-6
 
-[22]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[22]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[23]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[23]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[24]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[25]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
