@@ -98,7 +98,7 @@ export class Timekeeper {
      * Gets the current time as a formatted string.
      *
      * @public
-     * @param {boolean} includeDay Determines whether the current day is included in the string
+     * @param {boolean} [includeDay=false] Determines whether the current day is included in the string
      * @returns {string} the current time as a formatted string suitable for display
      */
     toTimeString (includeDay = false) {
@@ -108,6 +108,23 @@ export class Timekeeper {
         }
 
         return Helpers.toTimeString(this.factorTime(this.#totalElapsedMinutes), includeDay)
+    }
+
+    /**
+     * Formats an arbitrary time using the same pattern rules as `toTimeString`
+     *
+     * @public
+     * @param {number} totalMinutes The total number of minutes since 0:00 on day 0
+     * @param {boolean} [includeDay=false] Determines whether the day is included in the string
+     * @returns {string} the time as a formatted string suitable for display
+     */
+    formatTime (totalMinutes, includeDay = false) {
+        if (!Helpers.showExactTime) {
+            ui.notifications.warn(game.i18n.localize('JDTIMEKEEPING.NoPermission'))
+            return false
+        }
+
+        return Helpers.toTimeString(this.factorTime(totalMinutes), includeDay)
     }
 
     /**
