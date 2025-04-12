@@ -4,7 +4,7 @@
     "version": "vDev",
     "compatibility": {
         "minimum": "12",
-        "verified": "12"
+        "verified": "13"
     },
     "description": "Easy Timekeeping implements simple timekeeping without any fuss or complicated features.",
     "authors": [
