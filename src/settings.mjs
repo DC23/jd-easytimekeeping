@@ -77,6 +77,15 @@ export function registerSettings () {
         requiresReload: false,
     })
 
+    game.settings.register(MODULE_ID, SETTINGS.TIME_CHANGE_MACRO, {
+        name: 'JDTIMEKEEPING.Settings.TimeChangeMacro.name',
+        hint: 'JDTIMEKEEPING.Settings.TimeChangeMacro.hint',
+        scope: 'world',
+        config: true,
+        type: new foundry.data.fields.DocumentUUIDField({ type: 'Macro' }),
+        requiresReload: false,
+    })
+
     game.settings.register(MODULE_ID, SETTINGS.UI_FOCUSED_OPACITY, {
         name: 'JDTIMEKEEPING.Settings.UIFocusOpacity.name',
         hint: 'JDTIMEKEEPING.Settings.UIFocusOpacity.hint',
@@ -214,15 +223,6 @@ export function registerSettings () {
         onChange: value => {
             console.log('JD ETime | %s %d', SETTINGS.LARGE_TIME_DELTA, value)
         },
-        requiresReload: false,
-    })
-
-    game.settings.register(MODULE_ID, SETTINGS.TIME_CHANGE_MACRO, {
-        name: 'JDTIMEKEEPING.Settings.TimeChangeMacro.name',
-        hint: 'JDTIMEKEEPING.Settings.TimeChangeMacro.hint',
-        scope: 'world',
-        config: true,
-        type: new foundry.data.fields.DocumentUUIDField({ type: 'Macro' }),
         requiresReload: false,
     })
 
