@@ -161,7 +161,7 @@
 [id^=jd-et-uipanel] .window-header {
   /* background: var(--background-color); */
   background: black;
-  border-bottom: unset;
+  border: 0px;
 }
 
 [id^=jd-et-uipanel] .window-content {
