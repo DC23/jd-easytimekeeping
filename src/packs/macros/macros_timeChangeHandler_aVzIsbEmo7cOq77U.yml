@@ -1,0 +1,53 @@
+folder: nL4GactRADbRkcfw
+name: timeChangeHandler
+type: script
+author: 5csdu5LeMVsdxR5m
+img: icons/svg/dice-target.svg
+scope: global
+command: >-
+  /*
+
+  Easy Timekeeping time changed handler showing examples of checking for
+  different time events.
+
+  */
+
+
+  // Check for a new day, but only when time is moving forward
+
+  if (time.days > oldTime.days) {
+      ui.notifications.notify("It's a new day 😊")
+      console.log(time)
+          
+      // detect if the week has ticked. 
+      if (time.weekNumber > oldTime.weekNumber) {
+          ui.notifications.notify("It's a new week 📅")
+      }
+  }
+
+
+  // An example of setting an alarm on the first time change each day
+
+  if (time.days > oldTime.days && time.weekNumber >= 7) {
+     ChatMessage.create({
+              speaker: { actor: game.user.id },
+              content: "Your new armour and shield will be ready to collect from the blacksmith. 🛡️",
+     })
+  }
+ownership:
+  default: 0
+  5csdu5LeMVsdxR5m: 3
+flags: {}
+_stats:
+  compendiumSource: null
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: worldbuilding
+  systemVersion: 0.8.2
+  createdTime: 1744514449725
+  modifiedTime: 1744514451566
+  lastModifiedBy: 5csdu5LeMVsdxR5m
+_id: aVzIsbEmo7cOq77U
+sort: 100000
+_key: '!macros!aVzIsbEmo7cOq77U'
+
