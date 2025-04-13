@@ -27,7 +27,7 @@ export class Timekeeper {
 
     /**
      * Get the name of the current phase of the day as a localised string.
-     * 
+     *
      * Not to be confused with the four shifts, the phase of day relates
      * to the daylight cycle. During the day phase, the scene lighting
      * will be set to the day value. During the night, scene lighting is
@@ -211,7 +211,7 @@ export class Timekeeper {
      * @param {time} newTime the new time
      * @returns {timeChangeData} if the time was changed, otherwise `false`.
      */
-    #notify (oldTime, newTime) {
+    async #notify (oldTime, newTime) {
         const data = { oldTime: oldTime, time: newTime }
 
         Hooks.callAll(Timekeeper.TIME_CHANGE_HOOK, data)
@@ -221,17 +221,21 @@ export class Timekeeper {
          * module settings then we'll call it now
          */
         if (game.user.isGM) {
-            this.#timeChangeMacro?.execute(data)
+            try {
+                await this.#timeChangeMacro?.execute(data)
+            } catch (e) {
+                console.error('Error calling time change macro: %o', e)
+            }
         }
 
         return data
     }
 
     /**
-     * Factors a time in total minutes into a time object. 
-     * This API method has no side-effects, and does not change the internal 
+     * Factors a time in total minutes into a time object.
+     * This API method has no side-effects, and does not change the internal
      * time state.
-     * 
+     *
      * @param {number} totalMinutes The total number of minutes since 0:00 on day 0
      * @returns {timeAugmented}
      * @public
