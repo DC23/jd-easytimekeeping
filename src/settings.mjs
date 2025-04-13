@@ -7,6 +7,7 @@ export const MODULE_ID = 'jd-easytimekeeping'
 export const SETTINGS = {
     TOTAL_ELAPSED_MINUTES: 'totalElapsedMinutes',
     TIME_CHANGE_MACRO: 'timeChangeMacro',
+    TIME_CHAT_FORMAT_MACRO: 'timeChatFormatMacro',
     AUTO_TELL_TIME_SETTINGS: 'autoTellTimeSettings',
     AUTO_TELL_TIME_MENU: 'autoTellTimeMenu',
     DAYLIGHT_CYCLE_SETTINGS: 'daylightCycleSettings',
@@ -47,6 +48,7 @@ const GM_ONLY_SETTINGS = [
     SETTINGS.SMALL_TIME_DELTA,
     SETTINGS.LARGE_TIME_DELTA,
     SETTINGS.TIME_CHANGE_MACRO,
+    SETTINGS.TIME_CHAT_FORMAT_MACRO,
     SETTINGS.UI_BUTTON_COLOR,
     SETTINGS.UI_BUTTON_HOVERED_COLOR,
     SETTINGS.UI_BUTTON_CLICKED_COLOR,
@@ -80,6 +82,15 @@ export function registerSettings () {
     game.settings.register(MODULE_ID, SETTINGS.TIME_CHANGE_MACRO, {
         name: 'JDTIMEKEEPING.Settings.TimeChangeMacro.name',
         hint: 'JDTIMEKEEPING.Settings.TimeChangeMacro.hint',
+        scope: 'world',
+        config: true,
+        type: new foundry.data.fields.DocumentUUIDField({ type: 'Macro' }),
+        requiresReload: false,
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.TIME_CHAT_FORMAT_MACRO, {
+        name: 'JDTIMEKEEPING.Settings.TimeChatFormatMacro.name',
+        hint: 'JDTIMEKEEPING.Settings.TimeChatFormatMacro.hint',
         scope: 'world',
         config: true,
         type: new foundry.data.fields.DocumentUUIDField({ type: 'Macro' }),
