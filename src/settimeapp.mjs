@@ -9,7 +9,7 @@ export class SetTimeApplication extends HandlebarsApplicationMixin(ApplicationV2
     static ID = 'jd-et-settimeapp'
     static DEFAULT_OPTIONS = {
         tag: 'form',
-        classes: ['form', 'app', 'etk-dialog'],
+        classes: ['form', 'etk-dialog'],
         id: SetTimeApplication.ID,
         window: {
             icon: 'fa-solid fa-clock',
