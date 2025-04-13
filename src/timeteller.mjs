@@ -24,11 +24,15 @@ export class TimeTeller {
         if (game.user.isGM) {
             const formatMacro = TimeTeller.#timeChatFormatMacro
             if (formatMacro) {
-                content = await formatMacro.execute({ time: time, includeDay: true })
+                try {
+                    content = await formatMacro.execute({ time: time, includeDay: true })
+                } catch (e) {
+                    console.error('Error calling time formatting macro: %o', e)
+                }
             }
         }
 
-        if (!content) {
+        if (!content || typeof content != 'string') {
             content = Helpers.toTimeString(time, true)
         }
 
