@@ -133,5 +133,5 @@
     "JDTIMEKEEPING.FourteenDay": "Quatorze jours",
 
     "JDTIMEKEEPING.Settings.TimeChatFormatMacro.name": "Custom Time Chat Message Format Macro",
-    "JDTIMEKEEPING.Settings.TimeChatFormatMacro.hint": "Accepts a `timeAugmented` object and returns a string. See the API documentation for examples."
+    "JDTIMEKEEPING.Settings.TimeChatFormatMacro.hint": "Accepts a `timeAugmented` object and returns a string."
 }
