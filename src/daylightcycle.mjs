@@ -50,7 +50,7 @@ export class DaylightCycle {
      */
     static timeChangeHandler (data) {
         const time = data.time
-        if (!DaylightCycle.#enabled) return
+        if (!DaylightCycle.#enabled || !canvas.scene) return
 
         try {
             switch (DaylightCycle.#detectPhase(time)) {
