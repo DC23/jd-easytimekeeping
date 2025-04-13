@@ -1,0 +1,41 @@
+folder: HkvwQscI8Ojojlca
+name: customChatTimeFormatter
+type: script
+author: 5csdu5LeMVsdxR5m
+img: icons/svg/dice-target.svg
+scope: global
+command: |-
+  console.log('The time object is %o', time)
+  console.log('includeDay hint is %o', includeDay)
+  //console.log('The scope is %o', scope)
+
+  /* 
+   Use the new formatTime API method.
+   
+   When the module first loads, the TimeTeller class is defined before the
+   API, so we need to check for the existence of the API here to avoid a console 
+   error. The error is harmless, since it's handled by the module, but since this
+   is an example macro, I thought it best to show a clean example.
+  */
+  if (game.modules.get('jd-easytimekeeping').api) {
+      return "The time is " + game.modules.get('jd-easytimekeeping').api.formatTime(time.totalMinutes)
+  } else {
+      return false
+  }
+ownership:
+  default: 0
+  5csdu5LeMVsdxR5m: 3
+flags: {}
+_stats:
+  compendiumSource: null
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: worldbuilding
+  systemVersion: 0.8.2
+  createdTime: 1744531070236
+  modifiedTime: 1744531070236
+  lastModifiedBy: 5csdu5LeMVsdxR5m
+_id: KQHalpR8oFSOovZY
+sort: 0
+_key: '!macros!KQHalpR8oFSOovZY'
+
