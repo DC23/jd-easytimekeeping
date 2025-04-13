@@ -1,0 +1,35 @@
+folder: HkvwQscI8Ojojlca
+name: customChatTimeFormatter
+type: script
+author: 5csdu5LeMVsdxR5m
+img: icons/svg/dice-target.svg
+scope: global
+command: >-
+  console.log('The time object is %o', time)
+
+  console.log('includeDay hint is %o', includeDay)
+
+  //console.log('The scope is %o', scope)
+
+
+  // Use the new formatTime API method
+
+  return "The time is " +
+  game.modules.get('jd-easytimekeeping').api.formatTime(time.totalMinutes)
+ownership:
+  default: 0
+  5csdu5LeMVsdxR5m: 3
+flags: {}
+_stats:
+  compendiumSource: null
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: worldbuilding
+  systemVersion: 0.8.2
+  createdTime: 1744529366673
+  modifiedTime: 1744529366673
+  lastModifiedBy: 5csdu5LeMVsdxR5m
+_id: hw8xKGOwvdSpa5uw
+sort: 0
+_key: '!macros!hw8xKGOwvdSpa5uw'
+
