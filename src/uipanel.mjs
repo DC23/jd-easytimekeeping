@@ -121,6 +121,8 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
         // Show / hide the UI
         game.keybindings.register(MODULE_ID, 'show-hide-ui', {
             name: 'JDTIMEKEEPING.showHideUI',
+            // TODO: revert to unset once the bug in Foundry v13 that cannot edit unset keybinds is fixed.
+            editable: [{ key: 'KeyE', modifiers: ['ALT', 'SHIFT'] }],
             precedence: CONST.KEYBINDING_PRECEDENCE.PRIORITY,
             restricted: false,
             onDown: async () => {
