@@ -1,4 +1,4 @@
-# How to Contribute to the Easy Timekeeping Project
+# How to Contribute to the Easy Exalted Timekeeping Project
 
 ## Did you find a bug?
 
