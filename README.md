@@ -1,4 +1,4 @@
-# Easy Timekeeping
+# Easy Exalted Timekeeping
 
 [![GitHub Release](https://img.shields.io/github/v/release/DC23/jd-easytimekeeping?label=Release&color=blue&logo=GitHub)](https://github.com/DC23/jd-easytimekeeping/releases/latest)
 [![Static Badge](https://img.shields.io/badge/Foundry%20Version-v12+-orange?logo=foundry-virtual-tabletop)](https://foundryvtt.com/)
