@@ -37,6 +37,7 @@ export const SETTINGS = {
     UI_BUTTON_CLICKED_COLOR: 'uiButtonClickedColour',
     UI_BACKGROUND_COLOR: 'uiBackgroundColour',
     GAME_TURN_NAME: 'gameTurnName',
+    GAME_SHIFT_NAME: 'gameShiftName',
     FLOATING_UI_PANEL: 'uiInFrame',
     FLOATING_UI_PANEL_POSITION: 'uiPanelPosition',
 }
@@ -186,6 +187,16 @@ export function registerSettings () {
         config: true,
         type: String,
         default: game.i18n.localize('JDTIMEKEEPING.Time.Stretch'),
+        requiresReload: true,
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.GAME_SHIFT_NAME, {
+        name: 'JDTIMEKEEPING.Settings.GameShiftName.name',
+        hint: 'JDTIMEKEEPING.Settings.GameShiftName.hint',
+        scope: 'world',
+        config: true,
+        type: String,
+        default: game.i18n.localize('JDTIMEKEEPING.Time.Shift'),
         requiresReload: true,
     })
 
