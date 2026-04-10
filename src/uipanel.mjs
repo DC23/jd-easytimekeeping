@@ -297,8 +297,9 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
                     // just pass in a data object and handle layout in the template
                     // make adjustments to the copy, since the original is used for the graphical display
                     context.gameTurnData = foundry.utils.deepClone(gameTurnData)
-                    // display as 1-based
                     context.gameTurnData.gameTurnName = UIPanel.#gameTurnName
+                    context.gameTurnData.gameShiftName = UIPanel.#gameShiftName
+                    // display as 1-based
                     context.gameTurnData.days += 1
                     context.gameTurnData.shifts += 1
                     context.gameTurnData.turns += 1
@@ -463,6 +464,10 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
 
     static get #gameTurnName () {
         return game.settings.get(MODULE_ID, SETTINGS.GAME_TURN_NAME)
+    }
+
+    static get #gameShiftName () {
+        return game.settings.get(MODULE_ID, SETTINGS.GAME_SHIFT_NAME)
     }
 
     static get floatingPanel () {
