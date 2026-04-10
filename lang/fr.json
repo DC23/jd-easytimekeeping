@@ -133,5 +133,8 @@
     "JDTIMEKEEPING.FourteenDay": "Quatorze jours",
 
     "JDTIMEKEEPING.Settings.TimeChatFormatMacro.name": "Custom Time Chat Message Format Macro",
-    "JDTIMEKEEPING.Settings.TimeChatFormatMacro.hint": "Accepts a `timeAugmented` object and returns a string."
+    "JDTIMEKEEPING.Settings.TimeChatFormatMacro.hint": "Accepts a `timeAugmented` object and returns a string.",
+
+    "JDTIMEKEEPING.Settings.GameShiftName.name": "Game Shift",
+    "JDTIMEKEEPING.Settings.GameShiftName.hint": "The name of a game shift"
 }
