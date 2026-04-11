@@ -54,8 +54,16 @@
 | Afternoon| 12pm - 6pm | ![circular clock with 2 filled segments](./documentation/img/afternoon-clock.png) |
 | Evening| 6pm - 12am | ![circular clock with 3 filled segments](./documentation/img/evening-clock.png) |
 
-The name of each shift can be customised in the module settings. It's primarily used in the fuzzy time but may be used
-for other features in future.
+The name of each shift can be customised in the module settings. It's primarily used in the fuzzy time but may be used for other features in future.
+
+You can change the order that shifts are displayed in the middle shift clock with the `Shift Clock Offset` setting. The default setting of 0 displays the shift clock as in the preceding, with Night as the first shift and Evening as the last. The available offset values change the first displayed shift as follows:
+
+| Shift Clock Offset | Graphical Clock First Shift |
+| :---: | --- |
+| 0 | Night |
+| 1 | Evening |
+| 2 | Afternoon |
+| 3 | Morning |
 
 The daylight cycle also splits the 24 hour day into 4 phases, called *Dawn*, *Day*, *Dusk*, and *Night*. With the default settings, these phases take place at the following times:
 
