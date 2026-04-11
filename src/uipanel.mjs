@@ -186,7 +186,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
         // prep the time data
 
         // Apply the shift offset, which allows changing which shift visually corresponds to the first segment in the radial clock.
-        const offset = 0
+        const offset = UIPanel.#shiftClockOffset
         const shiftsValue = time.shifts + 1 + offset
 
         const clocks = [
@@ -473,6 +473,10 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
 
     static get #gameShiftName () {
         return game.settings.get(MODULE_ID, SETTINGS.GAME_SHIFT_NAME)
+    }
+
+    static get #shiftClockOffset () {
+        return game.settings.get(MODULE_ID, SETTINGS.SHIFT_CLOCK_OFFSET)
     }
 
     static get floatingPanel () {
