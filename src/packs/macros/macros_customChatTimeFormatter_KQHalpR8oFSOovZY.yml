@@ -29,12 +29,13 @@ flags: {}
 _stats:
   compendiumSource: null
   duplicateSource: null
-  coreVersion: '12.331'
+  coreVersion: '14.357'
   systemId: worldbuilding
   systemVersion: 0.8.2
   createdTime: 1744531070236
   modifiedTime: 1744531070236
   lastModifiedBy: 5csdu5LeMVsdxR5m
+  exportSource: null
 _id: KQHalpR8oFSOovZY
 sort: 0
 _key: '!macros!KQHalpR8oFSOovZY'
