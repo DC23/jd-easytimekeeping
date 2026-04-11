@@ -184,6 +184,11 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
 
     #prepareClocks (time) {
         // prep the time data
+
+        // Apply the shift offset, which allows changing which shift visually corresponds to the first segment in the radial clock.
+        const offset = 0
+        const shiftsValue = time.shifts + 1 + offset
+
         const clocks = [
             {
                 id: 'etk-turns',
@@ -199,7 +204,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
             },
             {
                 id: 'etk-shifts',
-                value: time.shifts + 1,
+                value: shiftsValue == 0 ? Constants.shiftsPerDay: shiftsValue,  // wrap to display a full clock at the end of a cycle
                 max: Constants.shiftsPerDay,
                 name: time.shiftName,
                 color: UIPanel.#clockFGColor,
