@@ -1,4 +1,5 @@
 import { registerAutoTellTimeSettings } from './autotelltimesettings.mjs'
+import { Constants } from './constants.mjs'
 import { registerDaylightCycleSettings } from './daylightcyclesettings.mjs'
 import { registerShiftSettings } from './shiftsettings.mjs'
 import { registerWeekdaySettings } from './weekdaysettings.mjs'
@@ -40,6 +41,7 @@ export const SETTINGS = {
     GAME_SHIFT_NAME: 'gameShiftName',
     FLOATING_UI_PANEL: 'uiInFrame',
     FLOATING_UI_PANEL_POSITION: 'uiPanelPosition',
+    SHIFT_CLOCK_OFFSET: 'shiftClockOffset',
 }
 
 const GM_ONLY_SETTINGS = [
@@ -53,6 +55,7 @@ const GM_ONLY_SETTINGS = [
     SETTINGS.UI_BUTTON_COLOR,
     SETTINGS.UI_BUTTON_HOVERED_COLOR,
     SETTINGS.UI_BUTTON_CLICKED_COLOR,
+    SETTINGS.SHIFT_CLOCK_OFFSET,
 ]
 
 export function registerSettings () {
@@ -177,6 +180,16 @@ export function registerSettings () {
         config: true,
         type: Boolean,
         default: false,
+        requiresReload: true,
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.SHIFT_CLOCK_OFFSET, {
+        name: 'JDTIMEKEEPING.Settings.ShiftClockOffset.name',
+        hint: 'JDTIMEKEEPING.Settings.ShiftClockOffset.hint',
+        scope: 'world',
+        config: true,
+        type: new foundry.data.fields.NumberField({ min: 0, max: Constants.shiftsPerDay - 1, step: 1 }),
+        default: 0,
         requiresReload: true,
     })
 

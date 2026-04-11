@@ -184,6 +184,13 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
 
     #prepareClocks (time) {
         // prep the time data
+
+        // Apply the shift offset, which allows changing the shift that visually corresponds to the first segment in the radial clock
+        const offset = UIPanel.#shiftClockOffset
+        let shiftsValue = ((time.shifts + offset) % Constants.shiftsPerDay) + 1
+        shiftsValue == 0 ? Constants.shiftsPerDay: shiftsValue
+        // console.log(time.shiftName, offset, shiftsValue)
+
         const clocks = [
             {
                 id: 'etk-turns',
@@ -199,7 +206,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
             },
             {
                 id: 'etk-shifts',
-                value: time.shifts + 1,
+                value: shiftsValue,
                 max: Constants.shiftsPerDay,
                 name: time.shiftName,
                 color: UIPanel.#clockFGColor,
@@ -468,6 +475,10 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
 
     static get #gameShiftName () {
         return game.settings.get(MODULE_ID, SETTINGS.GAME_SHIFT_NAME)
+    }
+
+    static get #shiftClockOffset () {
+        return game.settings.get(MODULE_ID, SETTINGS.SHIFT_CLOCK_OFFSET)
     }
 
     static get floatingPanel () {

@@ -136,5 +136,7 @@
     "JDTIMEKEEPING.Settings.TimeChatFormatMacro.hint": "Accepts a `timeAugmented` object and returns a string.",
 
     "JDTIMEKEEPING.Settings.GameShiftName.name": "Game Shift",
-    "JDTIMEKEEPING.Settings.GameShiftName.hint": "The name of a game shift"
+    "JDTIMEKEEPING.Settings.GameShiftName.hint": "The name of a game shift",
+    "JDTIMEKEEPING.Settings.ShiftClockOffset.name": "Shift Clock Offset",
+    "JDTIMEKEEPING.Settings.ShiftClockOffset.hint": "Adjusts which shift corresponds to the first filled segment in the radial clock. To make morning the appear as the first segment, set this to 1 less than the number of shifts in a day."
 }
