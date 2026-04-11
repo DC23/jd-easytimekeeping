@@ -56,7 +56,7 @@
 
 The name of each shift can be customised in the module settings. It's primarily used in the fuzzy time but may be used for other features in future.
 
-You can change the order that shifts are displayed in the middle shift clock with the `Shift Clock Offset` setting. The default setting of 0 displays the shift clock as in the preceding, with Night as the first shift and Evening as the last. The available offset values change the first displayed shift as follows:
+You can change the order that shifts are displayed in the graphical shift clock with the `Shift Clock Offset` setting. The default value of 0 displays the Night shift first and Evening last. The available offset values change the first displayed shift as indicated in this table:
 
 | Shift Clock Offset | Graphical Clock First Shift |
 | :---: | --- |
