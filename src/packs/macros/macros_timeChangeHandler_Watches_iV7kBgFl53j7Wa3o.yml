@@ -1,0 +1,64 @@
+folder: xlLoJkaTQWQ6W1pn
+name: timeChangeHandler-Watches
+type: script
+author: 8NIcTpJ3QR1Fa2De
+img: icons/svg/dice-target.svg
+scope: global
+command: >-
+  /*
+
+  Easy Timekeeping time changed handler that checks for a number of watches per
+  day, 
+
+  posting a message to chat when the watch changes.
+
+  */
+
+
+  // number of watches per day. Should be evenly divisible into 24
+
+  // 6 watches, 4 hours duration each
+
+  const watchesPerDay = 6
+
+  const hoursPerWatch = 24 / watchesPerDay
+
+  console.log(time.hours, watchesPerDay, hoursPerWatch)
+
+
+  const lastWatch = Math.floor(oldTime.hours / hoursPerWatch) + 1
+
+  const currentWatch = Math.floor(time.hours / hoursPerWatch) + 1  // Add one so
+  the first watch is numbered as 1, not 0
+
+  console.log(lastWatch, currentWatch)
+
+
+  // If the current watch is different to the last watch, then post a chat
+  message
+
+  if (currentWatch != lastWatch) {
+    const theTime = game.modules.get('jd-easytimekeeping').api.formatTime(time.totalMinutes)
+    ChatMessage.create({
+      speaker: { actor: game.user.id },
+      content: `Watch ${currentWatch}, ${theTime}.` ,
+    })
+  }
+ownership:
+  default: 0
+  8NIcTpJ3QR1Fa2De: 3
+flags: {}
+_stats:
+  coreVersion: '14.360'
+  systemId: ose
+  systemVersion: 2.1.15
+  createdTime: 1775883210618
+  modifiedTime: 1775883210618
+  lastModifiedBy: 8NIcTpJ3QR1Fa2De
+  exportSource: null
+  compendiumSource: null
+  duplicateSource: null
+_id: iV7kBgFl53j7Wa3o
+sort: 0
+_key: '!macros!iV7kBgFl53j7Wa3o'
+

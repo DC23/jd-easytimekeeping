@@ -1,0 +1,38 @@
+folder: xlLoJkaTQWQ6W1pn
+name: customChatTimeFormatter-Watches
+type: script
+author: 8NIcTpJ3QR1Fa2De
+img: icons/svg/dice-target.svg
+scope: global
+command: |-
+  /* 
+   Time chat formatter that matches the message in timeChangeHandler-Watches.
+   This macro formats the message when the UI button is pressed.
+  */
+  if (game.modules.get('jd-easytimekeeping').api) {
+      const watchesPerDay = 6
+      const hoursPerWatch = 24 / watchesPerDay
+      const currentWatch = Math.floor(time.hours / hoursPerWatch) + 1
+    
+      return `Watch ${currentWatch}, ${game.modules.get('jd-easytimekeeping').api.formatTime(time.totalMinutes)}.` 
+  } else {
+      return false
+  }
+ownership:
+  default: 0
+  8NIcTpJ3QR1Fa2De: 3
+flags: {}
+_stats:
+  coreVersion: '14.360'
+  systemId: ose
+  systemVersion: 2.1.15
+  createdTime: 1775883344773
+  modifiedTime: 1775883344773
+  lastModifiedBy: 8NIcTpJ3QR1Fa2De
+  exportSource: null
+  compendiumSource: null
+  duplicateSource: null
+_id: OP2wYo2FLtpVrxX2
+sort: 0
+_key: '!macros!OP2wYo2FLtpVrxX2'
+

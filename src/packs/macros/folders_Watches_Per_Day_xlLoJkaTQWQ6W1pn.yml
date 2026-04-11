@@ -1,0 +1,21 @@
+type: Macro
+folder: null
+name: Watches Per Day
+color: null
+sorting: a
+_id: xlLoJkaTQWQ6W1pn
+description: ''
+sort: 0
+flags: {}
+_stats:
+  coreVersion: '14.360'
+  systemId: ose
+  systemVersion: 2.1.15
+  createdTime: 1775883072715
+  modifiedTime: 1775883072715
+  lastModifiedBy: 8NIcTpJ3QR1Fa2De
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!folders!xlLoJkaTQWQ6W1pn'
+
