@@ -288,6 +288,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
             },
             analogueClock: {
                 show: true,  // TODO: make this a setting
+                size: 100, // in pixels, TODO: make this a setting
                 hourRotation: (this.#time.hours % 12) * 30 + (this.#time.minutes * 0.5),
                 minuteRotation: this.#time.minutes * 6,
                 dialColor: UIPanel.#clockBGColor,

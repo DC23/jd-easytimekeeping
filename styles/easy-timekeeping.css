@@ -330,6 +330,7 @@
 
 /* The defaults to the classic 10:10 position, and indicate the variables exposed via the HBS template to the JS logic. */
 .clock {
+  --size:              200px;
   --hour-rotation:     305deg;
   --minute-rotation:   60deg;
   --dial-color:        rgba(245, 245, 245, 1);
@@ -340,8 +341,8 @@
 /* Clock face */
 .clock {
   position: relative;
-  width:  200px;
-  height: 200px;
+  width:  var(--size);
+  height: var(--size);
   border-radius: 50%;
   background-color: var(--dial-color);
   box-shadow:
@@ -354,11 +355,11 @@
 .clock::before {
   content: "";
   position: absolute;
-  top:   8px;
+  top:   calc(var(--size) * 0.04);
   left:  50%;
   transform: translateX(-50%);
   width:  2px;
-  height: 10px;
+  height: calc(var(--size) * 0.05);
   border-radius: 1px;
   background-color: rgba(0, 0, 0, 0.25);
 }
@@ -389,7 +390,7 @@
 /* Hour hand */
 .clock__hand--hour {
   width:  5px;
-  height: 55px;
+  height: calc(var(--size) * 0.275);
   margin-left: -2.5px;   /* centre on the pivot (half of width) */
   background-color: var(--hour-hand-color);
   transform: rotate(var(--hour-rotation));
@@ -399,7 +400,7 @@
 /* Minute hand */
 .clock__hand--minute {
   width:  3px;
-  height: 75px;
+  height: calc(var(--size) * 0.375);
   margin-left: -1.5px;   /* centre on the pivot (half of width) */
   background-color: var(--minute-hand-color);
   transform: rotate(var(--minute-rotation));

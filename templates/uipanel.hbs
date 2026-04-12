@@ -39,9 +39,13 @@
     {{!-- Experimental analogue clock --}}
     {{log analogueClock}}
     {{#if analogueClock.show}}
-    <div class="clock" style="--hour-rotation: {{analogueClock.hourRotation}}deg; --minute-rotation: {{analogueClock.minuteRotation}}deg; --dial-color: {{analogueClock.dialColor}}; --hour-hand-color: {{analogueClock.hourHandColor}}; --minute-hand-color: {{analogueClock.minuteHandColor}};">
-        <div class="clock__hand clock__hand--hour"></div>
-        <div class="clock__hand clock__hand--minute"></div>
+    {{!-- <div class="etk-clock-panel flex-align-center"> --}}
+    <div class="margin-top flex-align-center">
+        <div class="clock"
+            style="--hour-rotation: {{analogueClock.hourRotation}}deg; --minute-rotation: {{analogueClock.minuteRotation}}deg; --dial-color: {{analogueClock.dialColor}}; --hour-hand-color: {{analogueClock.hourHandColor}}; --minute-hand-color: {{analogueClock.minuteHandColor}}; --size: {{analogueClock.size}}px;">
+            <div class="clock__hand clock__hand--hour"></div>
+            <div class="clock__hand clock__hand--minute"></div>
+        </div>
     </div>
     {{/if}}
 
