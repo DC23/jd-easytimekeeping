@@ -323,3 +323,85 @@
     }
   }
 }
+
+/**
+* Analogue clock styles
+*/
+
+/* The defaults to the classic 10:10 position, and indicate the variables exposed via the HBS template to the JS logic. */
+.clock {
+  --hour-rotation:     305deg;
+  --minute-rotation:   60deg;
+  --dial-color:        rgba(245, 245, 245, 1);
+  --hour-hand-color:   rgb(238, 200, 80);
+  --minute-hand-color: rgb(238, 200, 80);
+}
+ 
+/* Clock face */
+.clock {
+  position: relative;
+  width:  200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: var(--dial-color);
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.15),   /* thin rim */
+    0 4px 16px rgba(0, 0, 0, 0.18);  /* soft drop shadow */
+  box-sizing: border-box;
+}
+ 
+/* 12 o'clock tick (top), used as reference marker */
+.clock::before {
+  content: "";
+  position: absolute;
+  top:   8px;
+  left:  50%;
+  transform: translateX(-50%);
+  width:  2px;
+  height: 10px;
+  border-radius: 1px;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+ 
+/* Centre pivot */
+.clock::after {
+  content: "";
+  position: absolute;
+  top:  50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:  8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+}
+ 
+/* Shared hand styles */
+.clock__hand {
+  position: absolute;
+  bottom:   50%;          /* hands grow upward from the centre */
+  left:     50%;
+  transform-origin: bottom center;
+  border-radius: 2px 2px 0 0;
+}
+ 
+/* Hour hand */
+.clock__hand--hour {
+  width:  5px;
+  height: 55px;
+  margin-left: -2.5px;   /* centre on the pivot (half of width) */
+  background-color: var(--hour-hand-color);
+  transform: rotate(var(--hour-rotation));
+  z-index: 3;
+}
+ 
+/* Minute hand */
+.clock__hand--minute {
+  width:  3px;
+  height: 75px;
+  margin-left: -1.5px;   /* centre on the pivot (half of width) */
+  background-color: var(--minute-hand-color);
+  transform: rotate(var(--minute-rotation));
+  z-index: 2;
+}
