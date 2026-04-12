@@ -36,6 +36,15 @@
         </div>
     </div>
 
+    {{!-- Experimental analogue clock --}}
+    {{log analogueClock}}
+    {{#if analogueClock.show}}
+    <div class="clock" style="--hour-rotation: {{analogueClock.hourRotation}}deg; --minute-rotation: {{analogueClock.minuteRotation}}deg; --dial-color: {{analogueClock.dialColor}}; --hour-hand-color: {{analogueClock.hourHandColor}}; --minute-hand-color: {{analogueClock.minuteHandColor}};">
+        <div class="clock__hand clock__hand--hour"></div>
+        <div class="clock__hand clock__hand--minute"></div>
+    </div>
+    {{/if}}
+
     {{#if isGM}}
     <span class="button-container flexrow time-button-container flex-align-center flexshrink"
         style="--color: {{btn.color}}; --hover-color: {{btn.hoverColor}}; --click-color: {{btn.clickColor}};">
