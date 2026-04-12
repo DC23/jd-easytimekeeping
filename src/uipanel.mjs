@@ -174,7 +174,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
     static checkForAVPanel () {
         if (UIPanel.avEnabled && !UIPanel.floatingPanel) {
             // This is a pathological layout situation: the AV dock disrupts the docked UI
-            // todo: I could only do the check for the left & right dock settings, but it's safer to use all.
+            // I could only do the check for the left & right dock settings, but it's safer to use all.
             // Also, this bug was actually fixed in PR #254, but I needed a commit to get a PR for this bug fix
             // so the release notes workflow will pick this up. Weird.
             ui.notifications.warn(game.i18n.localize('JDTIMEKEEPING.AVDockWarning'))
@@ -288,7 +288,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
             },
             analogueClock: {
                 show: UIPanel.#showAnalogueClock, 
-                size: 75, // TODO: analogue clock size setting
+                size: UIPanel.#analogueClockSize, // TODO: analogue clock size setting
                 hourRotation: (this.#time.hours % 12) * 30 + (this.#time.minutes * 0.5),
                 minuteRotation: this.#time.minutes * 6,
                 dialColor: UIPanel.#clockBGColor, // TODO: analogue clock dial color setting
@@ -493,6 +493,10 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
 
     static get #shiftClockOffset () {
         return game.settings.get(MODULE_ID, SETTINGS.SHIFT_CLOCK_OFFSET)
+    }
+
+    static get #analogueClockSize () {
+        return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_SIZE)
     }
 
     static get floatingPanel () {

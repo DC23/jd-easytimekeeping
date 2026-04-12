@@ -43,6 +43,7 @@ export const SETTINGS = {
     FLOATING_UI_PANEL_POSITION: 'uiPanelPosition',
     SHIFT_CLOCK_OFFSET: 'shiftClockOffset',
     SHOW_ANALOGUE_CLOCK: 'showAnalogueClock',
+    ANALOGUE_CLOCK_SIZE: 'analogueClockSize',
 }
 
 const GM_ONLY_SETTINGS = [
@@ -192,6 +193,16 @@ export function registerSettings () {
         config: true,
         type: Boolean,
         default: false,
+        requiresReload: true,
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_SIZE, {
+        name: 'JDTIMEKEEPING.Settings.AnalogueClockSize.name',
+        hint: 'JDTIMEKEEPING.Settings.AnalogueClockSize.hint',
+        scope: 'world',
+        config: true,
+        type: new foundry.data.fields.NumberField({ min: 50, max: 150, step: 10 }),
+        default: 100,
         requiresReload: true,
     })
 

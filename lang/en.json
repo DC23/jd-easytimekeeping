@@ -141,5 +141,7 @@
     "JDTIMEKEEPING.Settings.ShiftClockOffset.hint": "Adjusts which shift is displayed as the first filled segment in the radial clock. To make morning appear first, set to 3.",
 
     "JDTIMEKEEPING.Settings.ShowAnalogueClock.name": "Show the Analogue Clock",
-    "JDTIMEKEEPING.Settings.ShowAnalogueClock.hint": ""
+    "JDTIMEKEEPING.Settings.ShowAnalogueClock.hint": "",
+    "JDTIMEKEEPING.Settings.AnalogueClockSize.name": "Analogue Clock Size",
+    "JDTIMEKEEPING.Settings.AnalogueClockSize.hint": "The diameter of the analogue clock in pixels."
     }
