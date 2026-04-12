@@ -287,7 +287,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
                 clickColor: UIPanel.#timeStepButtonClickedColor,
             },
             analogueClock: {
-                show: true,  // TODO: Show analogue clock setting
+                show: UIPanel.#showAnalogueClock, 
                 size: 75, // TODO: analogue clock size setting
                 hourRotation: (this.#time.hours % 12) * 30 + (this.#time.minutes * 0.5),
                 minuteRotation: this.#time.minutes * 6,
@@ -463,6 +463,10 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
 
     static get #showRadialClocks () {
         return game.settings.get(MODULE_ID, SETTINGS.SHOW_RADIAL_CLOCK)
+    }
+
+    static get #showAnalogueClock() {
+        return game.settings.get(MODULE_ID, SETTINGS.SHOW_ANALOGUE_CLOCK)
     }
 
     static get #uiFocusedOpacity () {

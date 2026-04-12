@@ -48,7 +48,7 @@
     "JDTIMEKEEPING.Settings.ShowDragonbaneTime.name": "Show the Fuzzy Time in Game Turns and Shifts",
     "JDTIMEKEEPING.Settings.ShowDragonbaneTime.hint": "If selected, this will be shown to players and the GM",
     "JDTIMEKEEPING.Settings.ShowRadialClock.name": "Show the Circular Clocks",
-    "JDTIMEKEEPING.Settings.ShowRadialClock.hint": "While they look like Global Progress Clocks, you can't click on them",
+    "JDTIMEKEEPING.Settings.ShowRadialClock.hint": "",
     "JDTIMEKEEPING.Settings.UITextColor.name": "UI Text Color",
     "JDTIMEKEEPING.Settings.UITextColor.hint": "Used for the time and fuzzy time strings",
     "JDTIMEKEEPING.Settings.RadialClockColor.name": "Circular Clock Foreground Color",
@@ -138,5 +138,8 @@
     "JDTIMEKEEPING.Settings.GameShiftName.name": "Game Shift",
     "JDTIMEKEEPING.Settings.GameShiftName.hint": "The name of a game shift",
     "JDTIMEKEEPING.Settings.ShiftClockOffset.name": "Shift Clock Offset",
-    "JDTIMEKEEPING.Settings.ShiftClockOffset.hint": "Adjusts which shift is displayed as the first filled segment in the radial clock. To make morning appear first, set to 3."
+    "JDTIMEKEEPING.Settings.ShiftClockOffset.hint": "Adjusts which shift is displayed as the first filled segment in the radial clock. To make morning appear first, set to 3.",
+
+    "JDTIMEKEEPING.Settings.ShowAnalogueClock.name": "Show the Analogue Clock",
+    "JDTIMEKEEPING.Settings.ShowAnalogueClock.hint": ""
     }

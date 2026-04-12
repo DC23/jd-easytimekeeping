@@ -42,12 +42,14 @@ export const SETTINGS = {
     FLOATING_UI_PANEL: 'uiInFrame',
     FLOATING_UI_PANEL_POSITION: 'uiPanelPosition',
     SHIFT_CLOCK_OFFSET: 'shiftClockOffset',
+    SHOW_ANALOGUE_CLOCK: 'showAnalogueClock',
 }
 
 const GM_ONLY_SETTINGS = [
     SETTINGS.SHOW_PLAYERS_EXACT_TIME,
     SETTINGS.SHOW_DRAGONBANE_TIME,
     SETTINGS.SHOW_RADIAL_CLOCK,
+    SETTINGS.SHOW_ANALOGUE_CLOCK,
     SETTINGS.SMALL_TIME_DELTA,
     SETTINGS.LARGE_TIME_DELTA,
     SETTINGS.TIME_CHANGE_MACRO,
@@ -176,6 +178,16 @@ export function registerSettings () {
     game.settings.register(MODULE_ID, SETTINGS.SHOW_RADIAL_CLOCK, {
         name: 'JDTIMEKEEPING.Settings.ShowRadialClock.name',
         hint: 'JDTIMEKEEPING.Settings.ShowRadialClock.hint',
+        scope: 'world',
+        config: true,
+        type: Boolean,
+        default: false,
+        requiresReload: true,
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.SHOW_ANALOGUE_CLOCK, {
+        name: 'JDTIMEKEEPING.Settings.ShowAnalogueClock.name',
+        hint: 'JDTIMEKEEPING.Settings.ShowAnalogueClock.hint',
         scope: 'world',
         config: true,
         type: Boolean,

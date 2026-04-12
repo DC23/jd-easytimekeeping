@@ -48,7 +48,7 @@
     "JDTIMEKEEPING.Settings.ShowDragonbaneTime.name": "Mostra Fuzzy Time nei Turno di Gioco and Momenti",
     "JDTIMEKEEPING.Settings.ShowDragonbaneTime.hint": "Se selezionato, questo verrà mostrato ai giocatori e al DM",
     "JDTIMEKEEPING.Settings.ShowRadialClock.name": "Mostra Orologi Circolari",
-    "JDTIMEKEEPING.Settings.ShowRadialClock.hint": "Sebbene sembrino orologi di progresso globale, non puoi fare clic su di essi",
+    "JDTIMEKEEPING.Settings.ShowRadialClock.hint": "",
     "JDTIMEKEEPING.Settings.UITextColor.name": "Colore Testo Interfaccia Utente",
     "JDTIMEKEEPING.Settings.UITextColor.hint": "Utilizzato per orario e fuzzy time strings",
     "JDTIMEKEEPING.Settings.RadialClockColor.name": "Colore Primo Piano Orologio Circolare",

@@ -48,7 +48,7 @@
     "JDTIMEKEEPING.Settings.ShowDragonbaneTime.name": "Afficher l'heure approximative dans Dragonbane par tranche de Périodes et d'Intervalles",
     "JDTIMEKEEPING.Settings.ShowDragonbaneTime.hint": "Si sélectionné, cela sera visible pour les joueurs et le MJ",
     "JDTIMEKEEPING.Settings.ShowRadialClock.name": "Afficher les horloges rondes de Dragonbane",
-    "JDTIMEKEEPING.Settings.ShowRadialClock.hint": " Bien qu'elles ressemblent à des horloges de progression universelles, vous ne pouvez pas cliquer dedans ",
+    "JDTIMEKEEPING.Settings.ShowRadialClock.hint": "",
     "JDTIMEKEEPING.Settings.UITextColor.name": "Couleur du texte de l'interface",
     "JDTIMEKEEPING.Settings.UITextColor.hint": "Utilisé pour l'heure et l'heure approximative de Dragonbane",
     "JDTIMEKEEPING.Settings.RadialClockColor.name": "Couleur de l'horloge ronde",
