@@ -140,8 +140,16 @@
     "JDTIMEKEEPING.Settings.ShiftClockOffset.name": "Shift Clock Offset",
     "JDTIMEKEEPING.Settings.ShiftClockOffset.hint": "Adjusts which shift is displayed as the first filled segment in the radial clock. To make morning appear first, set to 3.",
 
-    "JDTIMEKEEPING.Settings.ShowAnalogueClock.name": "Show the Analogue Clock",
+    "JDTIMEKEEPING.Settings.ShowAnalogueClock.name": "Show the Analog Clock",
     "JDTIMEKEEPING.Settings.ShowAnalogueClock.hint": "",
-    "JDTIMEKEEPING.Settings.AnalogueClockSize.name": "Analogue Clock Size",
-    "JDTIMEKEEPING.Settings.AnalogueClockSize.hint": "The diameter of the analogue clock in pixels."
+    "JDTIMEKEEPING.Settings.AnalogueClockSize.name": "Analog Clock Size",
+    "JDTIMEKEEPING.Settings.AnalogueClockSize.hint": "The diameter of the analog clock in pixels.",
+    "JDTIMEKEEPING.Settings.AnalogueClockDialColor.name": "Analog Clock Dial Color",
+    "JDTIMEKEEPING.Settings.AnalogueClockDialColor.hint": "The color of the clock dial.",
+    "JDTIMEKEEPING.Settings.AnalogueClockHourHandColor.name": "Analog Clock Hour Hand Color",
+    "JDTIMEKEEPING.Settings.AnalogueClockHourHandColor.hint": "",
+    "JDTIMEKEEPING.Settings.AnalogueClockMinuteHandColor.name": "Analog Clock Minute Hand Color",
+    "JDTIMEKEEPING.Settings.AnalogueClockMinuteHandColor.hint": "",
+    "JDTIMEKEEPING.Settings.AnalogueClockTickColor.name": "Analog Clock 12-hour Tick Color",
+    "JDTIMEKEEPING.Settings.AnalogueClockTickColor.hint": ""
     }

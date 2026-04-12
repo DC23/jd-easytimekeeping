@@ -288,13 +288,13 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
             },
             analogueClock: {
                 show: UIPanel.#showAnalogueClock, 
-                size: UIPanel.#analogueClockSize, // TODO: analogue clock size setting
+                size: UIPanel.#analogueClockSize, 
                 hourRotation: (this.#time.hours % 12) * 30 + (this.#time.minutes * 0.5),
                 minuteRotation: this.#time.minutes * 6,
-                dialColor: UIPanel.#clockBGColor, // TODO: analogue clock dial color setting
-                hourHandColor: UIPanel.#clockFGColor, // TODO: analogue clock hour hand color setting
-                minuteHandColor: UIPanel.#clockFGColor, // TODO: analogue clock minute hand color setting
-                tickColor: UIPanel.#timeStepButtonColor, // TODO: analogue clock tick color setting
+                dialColor: UIPanel.#analogueClockDialColor, 
+                hourHandColor: UIPanel.#analogueClockHourHandColor, 
+                minuteHandColor: UIPanel.#analogueClockMinuteHandColor, 
+                tickColor: UIPanel.#analogueClockTickColor, 
             },
         }
 
@@ -467,6 +467,22 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
 
     static get #showAnalogueClock() {
         return game.settings.get(MODULE_ID, SETTINGS.SHOW_ANALOGUE_CLOCK)
+    }
+
+    static get #analogueClockDialColor() { 
+        return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_DIAL_COLOR)
+    }
+
+    static get #analogueClockHourHandColor() {
+        return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_HOUR_HAND_COLOR)
+    }
+
+    static get #analogueClockMinuteHandColor() {
+        return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_MINUTE_HAND_COLOR)
+    }
+
+    static get #analogueClockTickColor() {
+        return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_TICK_COLOR)
     }
 
     static get #uiFocusedOpacity () {
