@@ -24,6 +24,10 @@
 - All time control buttons on the UI have keybindings, but they are unset by default. If you want to use keyboard shortcuts, you can assign keys in the Foundry Configure Controls menu for Easy Timekeeping.
   - For the short and long time step buttons, holding down the `shift` key when clicking will move time by double the configured amount. Holding down `alt` will move time by half, rounded to the nearest whole minute. This can sometimes set the time to odd values, which can be fixed with the Set Time dialog. I find the half-time-step feature useful with the long time step, for example, if the party camp is interrupted by an encounter, I might decide the encounter takes place halfway through the shift.
 
+- An optional analog clock. It's highly customisable, with the size, colors of the hands, 12-o-clock tick, and face all adjustable for each client. The time displays in the mouseover text and there's an additional setting for hiding the text-based time display while this clock is shown. As with the other features, this clock respects the GM setting controlling whether players can see the exact time. If they shouldn't know what time it is, they won't ever see this clock.
+
+    ![Analog clock](./documentation/img/analog-clock.png)
+
 - An optional daylight cycle provides configurable automation of scene lighting. Note that the daylight cycle is disabled by default. Turn it on in the module settings. Once enabled, it is active for every scene in your world. To disable daylight cycles for a single scene, use the Foundry Darkness Level Lock setting in the scene lighting configuration.
 
 - By default, players see the exact time of day, though this can be changed. You can tell them nothing, show them the fuzzy time, or only show them the exact time at predefined intervals (see the post to chat feature below).
@@ -42,10 +46,6 @@
 - An API allows most features to be controlled from macros, such as setting the time, incrementing or decrementing the time, querying the current time, and posting the time to chat.
 
 - Time change events allow further automation. There is a hook for world scripts, and the ability to specify a time change handler macro through the module settings (requires GM permissions). This allows you to develop scripted events that occur in response to the passage of time, or that take place only at certain times of day.
-
-- An optional analog clock. It's highly customisable, with the size, colors of the hands, 12-o-clock tick, and face all adjustable for each client. The time displays in the mouseover text and there's an additional setting for hiding the text-based time display while this clock is shown. As with the other features, this clock respects the GM setting controlling whether players can see the exact time. If they shouldn't know what time it is, they won't ever see this clock.
-
-    ![Analog clock](./documentation/img/analog-clock.png)
 
 ## How Time is Reckoned
 
