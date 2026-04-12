@@ -295,6 +295,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
                 hourHandColor: UIPanel.#analogueClockHourHandColor, 
                 minuteHandColor: UIPanel.#analogueClockMinuteHandColor, 
                 tickColor: UIPanel.#analogueClockTickColor, 
+                hoverText: Helpers.toTimeString(this.#time, UIPanel.#showLongFormatTime),
             },
         }
 
