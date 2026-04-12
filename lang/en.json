@@ -141,7 +141,7 @@
     "JDTIMEKEEPING.Settings.ShiftClockOffset.hint": "Adjusts which shift is displayed as the first filled segment in the radial clock. To make morning appear first, set to 3.",
 
     "JDTIMEKEEPING.Settings.ShowAnalogueClock.name": "Show the Analog Clock",
-    "JDTIMEKEEPING.Settings.ShowAnalogueClock.hint": "",
+    "JDTIMEKEEPING.Settings.ShowAnalogueClock.hint": "Players can only see the clock if the GM has enabled exact time for players.",
     "JDTIMEKEEPING.Settings.AnalogueClockSize.name": "Analog Clock Size",
     "JDTIMEKEEPING.Settings.AnalogueClockSize.hint": "The diameter of the analog clock in pixels.",
     "JDTIMEKEEPING.Settings.AnalogueClockDialColor.name": "Analog Clock Dial Color",

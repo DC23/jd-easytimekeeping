@@ -299,6 +299,10 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
             },
         }
 
+        if (!Helpers.isGM && !Helpers.showExactTime) {
+            context.analogueClock.show = false;
+        }
+
         if (UIPanel.#playerSeesNothing) {
             context.time = game.i18n.localize('JDTIMEKEEPING.YouHaveNoIdeaOfTheTime')
         } else {
