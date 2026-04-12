@@ -42,12 +42,20 @@ export const SETTINGS = {
     FLOATING_UI_PANEL: 'uiInFrame',
     FLOATING_UI_PANEL_POSITION: 'uiPanelPosition',
     SHIFT_CLOCK_OFFSET: 'shiftClockOffset',
+    SHOW_ANALOGUE_CLOCK: 'showAnalogueClock',
+    ANALOGUE_CLOCK_SIZE: 'analogueClockSize',
+    ANALOGUE_CLOCK_DIAL_COLOR: 'analogueClockDialColor',
+    ANALOGUE_CLOCK_HOUR_HAND_COLOR: 'analogueClockHourHandColor',
+    ANALOGUE_CLOCK_MINUTE_HAND_COLOR: 'analogueClockMinuteHandColor',
+    ANALOGUE_CLOCK_TICK_COLOR: 'analogueClockTickColor',
+    HIDE_TIME_TEXT_WHEN_ANALOGUE_CLOCK_SHOWN: 'hideTimeTextWhenAnalogueClockShown',
 }
 
 const GM_ONLY_SETTINGS = [
     SETTINGS.SHOW_PLAYERS_EXACT_TIME,
     SETTINGS.SHOW_DRAGONBANE_TIME,
     SETTINGS.SHOW_RADIAL_CLOCK,
+    SETTINGS.SHOW_ANALOGUE_CLOCK,
     SETTINGS.SMALL_TIME_DELTA,
     SETTINGS.LARGE_TIME_DELTA,
     SETTINGS.TIME_CHANGE_MACRO,
@@ -173,6 +181,19 @@ export function registerSettings () {
         // Not using cosmeticSettingsChanged because it's a world setting, so needs a reload to update all clients
     })
 
+    game.settings.register(MODULE_ID, SETTINGS.HIDE_TIME_TEXT_WHEN_ANALOGUE_CLOCK_SHOWN, {
+        name: 'JDTIMEKEEPING.Settings.HideTimeTextWhenAnalogueClockShown.name',
+        hint: 'JDTIMEKEEPING.Settings.HideTimeTextWhenAnalogueClockShown.hint',
+        scope: 'client',
+        config: true,
+        type: Boolean,
+        default: false,
+        requiresReload: false,
+        onChange: () => {
+            game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
+        },
+    })
+
     game.settings.register(MODULE_ID, SETTINGS.SHOW_RADIAL_CLOCK, {
         name: 'JDTIMEKEEPING.Settings.ShowRadialClock.name',
         hint: 'JDTIMEKEEPING.Settings.ShowRadialClock.hint',
@@ -181,6 +202,29 @@ export function registerSettings () {
         type: Boolean,
         default: false,
         requiresReload: true,
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.SHOW_ANALOGUE_CLOCK, {
+        name: 'JDTIMEKEEPING.Settings.ShowAnalogueClock.name',
+        hint: 'JDTIMEKEEPING.Settings.ShowAnalogueClock.hint',
+        scope: 'world',
+        config: true,
+        type: Boolean,
+        default: false,
+        requiresReload: true,
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_SIZE, {
+        name: 'JDTIMEKEEPING.Settings.AnalogueClockSize.name',
+        hint: 'JDTIMEKEEPING.Settings.AnalogueClockSize.hint',
+        scope: 'client',
+        config: true,
+        type: new foundry.data.fields.NumberField({ min: 50, max: 150, step: 10 }),
+        default: 100,
+        requiresReload: false,
+        onChange: () => {
+            game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
+        },
     })
 
     game.settings.register(MODULE_ID, SETTINGS.SHIFT_CLOCK_OFFSET, {
@@ -284,6 +328,7 @@ export function registerSettings () {
         config: true,
         type: new foundry.data.fields.ColorField(),
         default: '#ffffff',
+        // default: '#1ab6ea',
         requiresReload: false,
         onChange: () => {
             game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
@@ -323,6 +368,62 @@ export function registerSettings () {
         config: true,
         type: new foundry.data.fields.ColorField(),
         default: '#000000',
+        requiresReload: false,
+        onChange: () => {
+            game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
+        },
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_DIAL_COLOR, {
+        name: 'JDTIMEKEEPING.Settings.AnalogueClockDialColor.name',
+        hint: 'JDTIMEKEEPING.Settings.AnalogueClockDialColor.hint',
+        scope: 'client',
+        config: true,
+        type: new foundry.data.fields.ColorField(),
+        default: '#062811',
+        // default: '#061128',
+        requiresReload: false,
+        onChange: () => {
+            game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
+        },
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_HOUR_HAND_COLOR, {
+        name: 'JDTIMEKEEPING.Settings.AnalogueClockHourHandColor.name',
+        hint: 'JDTIMEKEEPING.Settings.AnalogueClockHourHandColor.hint',
+        scope: 'client',
+        config: true,
+        type: new foundry.data.fields.ColorField(),
+        default: '#1bb64a',
+        // default: '#feae01',
+        requiresReload: false,
+        onChange: () => {
+            game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
+        },
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_MINUTE_HAND_COLOR, {  
+        name: 'JDTIMEKEEPING.Settings.AnalogueClockMinuteHandColor.name',
+        hint: 'JDTIMEKEEPING.Settings.AnalogueClockMinuteHandColor.hint',
+        scope: 'client',
+        config: true,
+        type: new foundry.data.fields.ColorField(),
+        default: '#1bb64a',
+        // default: '#feae01',
+        requiresReload: false,
+        onChange: () => {
+            game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
+        },
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_TICK_COLOR, {
+        name: 'JDTIMEKEEPING.Settings.AnalogueClockTickColor.name',
+        hint: 'JDTIMEKEEPING.Settings.AnalogueClockTickColor.hint',
+        scope: 'client',
+        config: true,
+        type: new foundry.data.fields.ColorField(),
+        default: '#138b37',
+        // default: '#136d8b',
         requiresReload: false,
         onChange: () => {
             game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()

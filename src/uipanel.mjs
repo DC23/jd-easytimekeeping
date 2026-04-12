@@ -174,7 +174,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
     static checkForAVPanel () {
         if (UIPanel.avEnabled && !UIPanel.floatingPanel) {
             // This is a pathological layout situation: the AV dock disrupts the docked UI
-            // todo: I could only do the check for the left & right dock settings, but it's safer to use all.
+            // I could only do the check for the left & right dock settings, but it's safer to use all.
             // Also, this bug was actually fixed in PR #254, but I needed a commit to get a PR for this bug fix
             // so the release notes workflow will pick this up. Weird.
             ui.notifications.warn(game.i18n.localize('JDTIMEKEEPING.AVDockWarning'))
@@ -188,7 +188,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
         // Apply the shift offset, which allows changing the shift that visually corresponds to the first segment in the radial clock
         const offset = UIPanel.#shiftClockOffset
         let shiftsValue = ((time.shifts + offset) % Constants.shiftsPerDay) + 1
-        shiftsValue == 0 ? Constants.shiftsPerDay: shiftsValue
+        shiftsValue == 0 ? Constants.shiftsPerDay : shiftsValue
         // console.log(time.shiftName, offset, shiftsValue)
 
         const clocks = [
@@ -281,11 +281,27 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
         const context = {
             isGM: game.user.isGM,
             textColor: UIPanel.#uiTextColor,
+            showTimeText: !UIPanel.#hideTimeText,
             btn: {
                 color: UIPanel.#timeStepButtonColor,
                 hoverColor: UIPanel.#timeStepButtonHoveredColor,
                 clickColor: UIPanel.#timeStepButtonClickedColor,
             },
+            analogueClock: {
+                show: UIPanel.#showAnalogueClock,
+                size: UIPanel.#analogueClockSize,
+                hourRotation: (this.#time.hours % 12) * 30 + this.#time.minutes * 0.5,
+                minuteRotation: this.#time.minutes * 6,
+                dialColor: UIPanel.#analogueClockDialColor,
+                hourHandColor: UIPanel.#analogueClockHourHandColor,
+                minuteHandColor: UIPanel.#analogueClockMinuteHandColor,
+                tickColor: UIPanel.#analogueClockTickColor,
+                hoverText: Helpers.toTimeString(this.#time, UIPanel.#showLongFormatTime),
+            },
+        }
+
+        if (!Helpers.isGM && !Helpers.showExactTime) {
+            context.analogueClock.show = false
         }
 
         if (UIPanel.#playerSeesNothing) {
@@ -400,6 +416,13 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
         await game.modules.get(MODULE_ID).uiPanel.toggleHidden()
     }
 
+    static get #hideTimeText () {
+        return (
+            game.settings.get(MODULE_ID, SETTINGS.HIDE_TIME_TEXT_WHEN_ANALOGUE_CLOCK_SHOWN) &&
+            game.settings.get(MODULE_ID, SETTINGS.SHOW_ANALOGUE_CLOCK)
+        )
+    }
+
     static get #uiBgColor () {
         return game.settings.get(MODULE_ID, SETTINGS.UI_BACKGROUND_COLOR)
     }
@@ -455,6 +478,26 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
         return game.settings.get(MODULE_ID, SETTINGS.SHOW_RADIAL_CLOCK)
     }
 
+    static get #showAnalogueClock () {
+        return game.settings.get(MODULE_ID, SETTINGS.SHOW_ANALOGUE_CLOCK)
+    }
+
+    static get #analogueClockDialColor () {
+        return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_DIAL_COLOR)
+    }
+
+    static get #analogueClockHourHandColor () {
+        return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_HOUR_HAND_COLOR)
+    }
+
+    static get #analogueClockMinuteHandColor () {
+        return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_MINUTE_HAND_COLOR)
+    }
+
+    static get #analogueClockTickColor () {
+        return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_TICK_COLOR)
+    }
+
     static get #uiFocusedOpacity () {
         if (UIPanel.#hidden) return 0
         return game.settings.get(MODULE_ID, SETTINGS.UI_FOCUSED_OPACITY)
@@ -479,6 +522,10 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
 
     static get #shiftClockOffset () {
         return game.settings.get(MODULE_ID, SETTINGS.SHIFT_CLOCK_OFFSET)
+    }
+
+    static get #analogueClockSize () {
+        return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_SIZE)
     }
 
     static get floatingPanel () {

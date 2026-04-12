@@ -6,9 +6,11 @@
 {{/if}}
 {{/inline}}
 
-{{!-- {{log this}} --}}
+{{log this}}
 <div class="et-time flexcol">
+    {{#if showTimeText}}
     {{> timePartial time=time color=textColor }}
+    {{/if}}
 
     {{#with gameTurnData}}
     <span id="dbtime" class="etk-timeofday flexrow flexshrink" style='color: {{textColor}};'>
@@ -35,6 +37,25 @@
             {{/each}}
         </div>
     </div>
+
+    {{!-- analogue clock --}}
+    {{#if analogueClock.show}}
+    <div class="form-row flex-align-center">
+        <div class="hovertext" data-hover="{{analogueClock.hoverText}}">
+            <div class="clock" style="
+                --hour-rotation: {{analogueClock.hourRotation}}deg; 
+                --minute-rotation: {{analogueClock.minuteRotation}}deg; 
+                --dial-color: {{analogueClock.dialColor}}; 
+                --hour-hand-color: {{analogueClock.hourHandColor}}; 
+                --minute-hand-color: {{analogueClock.minuteHandColor}}; 
+                --tick-color: {{analogueClock.tickColor}};
+                --size: {{analogueClock.size}}px;">
+                <div class="clock__hand clock__hand--hour"></div>
+                <div class="clock__hand clock__hand--minute"></div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
 
     {{#if isGM}}
     <span class="button-container flexrow time-button-container flex-align-center flexshrink"
