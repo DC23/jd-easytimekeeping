@@ -138,5 +138,20 @@
     "JDTIMEKEEPING.Settings.GameShiftName.name": "Game Shift",
     "JDTIMEKEEPING.Settings.GameShiftName.hint": "The name of a game shift",
     "JDTIMEKEEPING.Settings.ShiftClockOffset.name": "Shift Clock Offset",
-    "JDTIMEKEEPING.Settings.ShiftClockOffset.hint": "Adjusts which shift is displayed as the first filled segment in the radial clock. To make morning appear first, set to 3."
+    "JDTIMEKEEPING.Settings.ShiftClockOffset.hint": "Adjusts which shift is displayed as the first filled segment in the radial clock. To make morning appear first, set to 3.",
+
+    "JDTIMEKEEPING.Settings.ShowAnalogueClock.name": "Show the Analog Clock",
+    "JDTIMEKEEPING.Settings.ShowAnalogueClock.hint": "Players can only see the clock if the GM has enabled exact time for players.",
+    "JDTIMEKEEPING.Settings.AnalogueClockSize.name": "Analog Clock Size",
+    "JDTIMEKEEPING.Settings.AnalogueClockSize.hint": "The diameter of the analog clock in pixels.",
+    "JDTIMEKEEPING.Settings.AnalogueClockDialColor.name": "Analog Clock Dial Color",
+    "JDTIMEKEEPING.Settings.AnalogueClockDialColor.hint": "The color of the clock dial.",
+    "JDTIMEKEEPING.Settings.AnalogueClockHourHandColor.name": "Analog Clock Hour Hand Color",
+    "JDTIMEKEEPING.Settings.AnalogueClockHourHandColor.hint": "",
+    "JDTIMEKEEPING.Settings.AnalogueClockMinuteHandColor.name": "Analog Clock Minute Hand Color",
+    "JDTIMEKEEPING.Settings.AnalogueClockMinuteHandColor.hint": "",
+    "JDTIMEKEEPING.Settings.AnalogueClockTickColor.name": "Analog Clock 12-hour Tick Color",
+    "JDTIMEKEEPING.Settings.AnalogueClockTickColor.hint": "", 
+    "JDTIMEKEEPING.Settings.HideTimeTextWhenAnalogueClockShown.name": "Hide Text Time Display When Analog Clock is Shown",
+    "JDTIMEKEEPING.Settings.HideTimeTextWhenAnalogueClockShown.hint": "If enabled, the time text will be hidden when the analog clock is visible."
 }
