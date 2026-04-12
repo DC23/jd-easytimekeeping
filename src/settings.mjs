@@ -328,6 +328,7 @@ export function registerSettings () {
         config: true,
         type: new foundry.data.fields.ColorField(),
         default: '#ffffff',
+        // default: '#1ab6ea',
         requiresReload: false,
         onChange: () => {
             game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
@@ -380,6 +381,7 @@ export function registerSettings () {
         config: true,
         type: new foundry.data.fields.ColorField(),
         default: '#062811',
+        // default: '#061128',
         requiresReload: false,
         onChange: () => {
             game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
@@ -392,7 +394,8 @@ export function registerSettings () {
         scope: 'client',
         config: true,
         type: new foundry.data.fields.ColorField(),
-        default: '#138b37',
+        default: '#1bb64a',
+        // default: '#feae01',
         requiresReload: false,
         onChange: () => {
             game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
@@ -405,7 +408,8 @@ export function registerSettings () {
         scope: 'client',
         config: true,
         type: new foundry.data.fields.ColorField(),
-        default: '#138b37',
+        default: '#1bb64a',
+        // default: '#feae01',
         requiresReload: false,
         onChange: () => {
             game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
@@ -419,6 +423,7 @@ export function registerSettings () {
         config: true,
         type: new foundry.data.fields.ColorField(),
         default: '#138b37',
+        // default: '#136d8b',
         requiresReload: false,
         onChange: () => {
             game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()

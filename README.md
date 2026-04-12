@@ -43,6 +43,10 @@
 
 - Time change events allow further automation. There is a hook for world scripts, and the ability to specify a time change handler macro through the module settings (requires GM permissions). This allows you to develop scripted events that occur in response to the passage of time, or that take place only at certain times of day.
 
+- An optional analog clock. It's highly customisable, with the size, colors of the hands, 12-o-clock tick, and face all adjustable for each client. The time displays in the mouseover text and there's an additional setting for hiding the text-based time display while this clock is shown. As with the other features, this clock respects the GM setting controlling whether players can see the exact time. If they shouldn't know what time it is, they won't ever see this clock.
+
+    ![Analog clock](./documentation/img/analog-clock.png)
+
 ## How Time is Reckoned
 
 **Easy Timekeeping** splits each 24 hour day into 4 shifts:
