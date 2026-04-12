@@ -36,12 +36,11 @@
         </div>
     </div>
 
-    {{!-- Experimental analogue clock --}}
-    {{log analogueClock}}
+    {{!-- analogue clock --}}
     {{#if analogueClock.show}}
-    {{!-- <div class="etk-clock-panel flex-align-center"> --}}
-        <div class="form-row flex-align-center">
-            <div class="clock" style="
+    {{!-- <div class="form-row flex-align-center hovertext" data-hover="{{time}}"> --}}
+    <div class="form-row flex-align-center">
+        <div class="clock" style="
                 --hour-rotation: {{analogueClock.hourRotation}}deg; 
                 --minute-rotation: {{analogueClock.minuteRotation}}deg; 
                 --dial-color: {{analogueClock.dialColor}}; 
@@ -49,47 +48,47 @@
                 --minute-hand-color: {{analogueClock.minuteHandColor}}; 
                 --tick-color: {{analogueClock.tickColor}};
                 --size: {{analogueClock.size}}px;">
-                <div class="clock__hand clock__hand--hour"></div>
-                <div class="clock__hand clock__hand--minute"></div>
-            </div>
+            <div class="clock__hand clock__hand--hour"></div>
+            <div class="clock__hand clock__hand--minute"></div>
         </div>
-        {{/if}}
-
-        {{#if isGM}}
-        <span class="button-container flexrow time-button-container flex-align-center flexshrink"
-            style="--color: {{btn.color}}; --hover-color: {{btn.hoverColor}}; --click-color: {{btn.clickColor}};">
-
-            <span class="hovertext" data-hover="{{localize 'JDTIMEKEEPING.UI.reset'}}">
-                <i id="btn-etk-reset-time" data-action="reset-time" class="fa-solid fa-clock-rotate-left"></i>
-            </span>
-
-            <span class="hovertext" data-hover="{{localize 'JDTIMEKEEPING.UI.largeDec'}}">
-                <i id="btn-etk-large-dec" data-action="time-delta" data-target="large-decrement"
-                    class="fa-solid fa-backward-fast"></i>
-            </span>
-
-            <span class="hovertext" data-hover="{{localize 'JDTIMEKEEPING.UI.smallDec'}}">
-                <i id="btn-etk-small-dec" data-action="time-delta" data-target="small-decrement"
-                    class="fa-solid fa-backward"></i>
-            </span>
-
-            <span class="hovertext" data-hover="{{localize 'JDTIMEKEEPING.UI.smallInc'}}">
-                <i id="btn-etk-small-inc" data-action="time-delta" data-target="small-increment"
-                    class="fa-solid fa-forward "> </i>
-            </span>
-
-            <span class="hovertext" data-hover="{{localize 'JDTIMEKEEPING.UI.largeInc'}}">
-                <i id="btn-etk-large-inc" data-action="time-delta" data-target="large-increment"
-                    class="fa-solid fa-forward-fast "> </i>
-            </span>
-
-            <span class="hovertext" data-hover="{{localize 'JDTIMEKEEPING.UI.set'}}">
-                <i id="btn-etk-set-time" data-action="set-time" class="fa-solid fa-clock "></i>
-            </span>
-
-            <span class="hovertext" data-hover="{{localize 'JDTIMEKEEPING.UI.timeChat'}}">
-                <i id="btn-etk-tell-time" data-action="tell-time" class="fa-solid fa-message"></i>
-            </span>
-        </span>
-        {{/if}}
     </div>
+    {{/if}}
+
+    {{#if isGM}}
+    <span class="button-container flexrow time-button-container flex-align-center flexshrink"
+        style="--color: {{btn.color}}; --hover-color: {{btn.hoverColor}}; --click-color: {{btn.clickColor}};">
+
+        <span class="hovertext" data-hover="{{localize 'JDTIMEKEEPING.UI.reset'}}">
+            <i id="btn-etk-reset-time" data-action="reset-time" class="fa-solid fa-clock-rotate-left"></i>
+        </span>
+
+        <span class="hovertext" data-hover="{{localize 'JDTIMEKEEPING.UI.largeDec'}}">
+            <i id="btn-etk-large-dec" data-action="time-delta" data-target="large-decrement"
+                class="fa-solid fa-backward-fast"></i>
+        </span>
+
+        <span class="hovertext" data-hover="{{localize 'JDTIMEKEEPING.UI.smallDec'}}">
+            <i id="btn-etk-small-dec" data-action="time-delta" data-target="small-decrement"
+                class="fa-solid fa-backward"></i>
+        </span>
+
+        <span class="hovertext" data-hover="{{localize 'JDTIMEKEEPING.UI.smallInc'}}">
+            <i id="btn-etk-small-inc" data-action="time-delta" data-target="small-increment"
+                class="fa-solid fa-forward "> </i>
+        </span>
+
+        <span class="hovertext" data-hover="{{localize 'JDTIMEKEEPING.UI.largeInc'}}">
+            <i id="btn-etk-large-inc" data-action="time-delta" data-target="large-increment"
+                class="fa-solid fa-forward-fast "> </i>
+        </span>
+
+        <span class="hovertext" data-hover="{{localize 'JDTIMEKEEPING.UI.set'}}">
+            <i id="btn-etk-set-time" data-action="set-time" class="fa-solid fa-clock "></i>
+        </span>
+
+        <span class="hovertext" data-hover="{{localize 'JDTIMEKEEPING.UI.timeChat'}}">
+            <i id="btn-etk-tell-time" data-action="tell-time" class="fa-solid fa-message"></i>
+        </span>
+    </span>
+    {{/if}}
+</div>
