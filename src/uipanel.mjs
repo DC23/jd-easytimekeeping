@@ -188,7 +188,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
         // Apply the shift offset, which allows changing the shift that visually corresponds to the first segment in the radial clock
         const offset = UIPanel.#shiftClockOffset
         let shiftsValue = ((time.shifts + offset) % Constants.shiftsPerDay) + 1
-        shiftsValue == 0 ? Constants.shiftsPerDay: shiftsValue
+        shiftsValue == 0 ? Constants.shiftsPerDay : shiftsValue
         // console.log(time.shiftName, offset, shiftsValue)
 
         const clocks = [
@@ -281,26 +281,27 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
         const context = {
             isGM: game.user.isGM,
             textColor: UIPanel.#uiTextColor,
+            showTimeText: !UIPanel.#hideTimeText,
             btn: {
                 color: UIPanel.#timeStepButtonColor,
                 hoverColor: UIPanel.#timeStepButtonHoveredColor,
                 clickColor: UIPanel.#timeStepButtonClickedColor,
             },
             analogueClock: {
-                show: UIPanel.#showAnalogueClock, 
-                size: UIPanel.#analogueClockSize, 
-                hourRotation: (this.#time.hours % 12) * 30 + (this.#time.minutes * 0.5),
+                show: UIPanel.#showAnalogueClock,
+                size: UIPanel.#analogueClockSize,
+                hourRotation: (this.#time.hours % 12) * 30 + this.#time.minutes * 0.5,
                 minuteRotation: this.#time.minutes * 6,
-                dialColor: UIPanel.#analogueClockDialColor, 
-                hourHandColor: UIPanel.#analogueClockHourHandColor, 
-                minuteHandColor: UIPanel.#analogueClockMinuteHandColor, 
-                tickColor: UIPanel.#analogueClockTickColor, 
+                dialColor: UIPanel.#analogueClockDialColor,
+                hourHandColor: UIPanel.#analogueClockHourHandColor,
+                minuteHandColor: UIPanel.#analogueClockMinuteHandColor,
+                tickColor: UIPanel.#analogueClockTickColor,
                 hoverText: Helpers.toTimeString(this.#time, UIPanel.#showLongFormatTime),
             },
         }
 
         if (!Helpers.isGM && !Helpers.showExactTime) {
-            context.analogueClock.show = false;
+            context.analogueClock.show = false
         }
 
         if (UIPanel.#playerSeesNothing) {
@@ -415,6 +416,13 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
         await game.modules.get(MODULE_ID).uiPanel.toggleHidden()
     }
 
+    static get #hideTimeText () {
+        return (
+            game.settings.get(MODULE_ID, SETTINGS.HIDE_TIME_TEXT_WHEN_ANALOGUE_CLOCK_SHOWN) &&
+            game.settings.get(MODULE_ID, SETTINGS.SHOW_ANALOGUE_CLOCK)
+        )
+    }
+
     static get #uiBgColor () {
         return game.settings.get(MODULE_ID, SETTINGS.UI_BACKGROUND_COLOR)
     }
@@ -470,23 +478,23 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
         return game.settings.get(MODULE_ID, SETTINGS.SHOW_RADIAL_CLOCK)
     }
 
-    static get #showAnalogueClock() {
+    static get #showAnalogueClock () {
         return game.settings.get(MODULE_ID, SETTINGS.SHOW_ANALOGUE_CLOCK)
     }
 
-    static get #analogueClockDialColor() { 
+    static get #analogueClockDialColor () {
         return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_DIAL_COLOR)
     }
 
-    static get #analogueClockHourHandColor() {
+    static get #analogueClockHourHandColor () {
         return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_HOUR_HAND_COLOR)
     }
 
-    static get #analogueClockMinuteHandColor() {
+    static get #analogueClockMinuteHandColor () {
         return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_MINUTE_HAND_COLOR)
     }
 
-    static get #analogueClockTickColor() {
+    static get #analogueClockTickColor () {
         return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_TICK_COLOR)
     }
 

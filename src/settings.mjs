@@ -48,6 +48,7 @@ export const SETTINGS = {
     ANALOGUE_CLOCK_HOUR_HAND_COLOR: 'analogueClockHourHandColor',
     ANALOGUE_CLOCK_MINUTE_HAND_COLOR: 'analogueClockMinuteHandColor',
     ANALOGUE_CLOCK_TICK_COLOR: 'analogueClockTickColor',
+    HIDE_TIME_TEXT_WHEN_ANALOGUE_CLOCK_SHOWN: 'hideTimeTextWhenAnalogueClockShown',
 }
 
 const GM_ONLY_SETTINGS = [
@@ -178,6 +179,19 @@ export function registerSettings () {
         default: false,
         requiresReload: true,
         // Not using cosmeticSettingsChanged because it's a world setting, so needs a reload to update all clients
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.HIDE_TIME_TEXT_WHEN_ANALOGUE_CLOCK_SHOWN, {
+        name: 'JDTIMEKEEPING.Settings.HideTimeTextWhenAnalogueClockShown.name',
+        hint: 'JDTIMEKEEPING.Settings.HideTimeTextWhenAnalogueClockShown.hint',
+        scope: 'client',
+        config: true,
+        type: Boolean,
+        default: false,
+        requiresReload: false,
+        onChange: () => {
+            game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
+        },
     })
 
     game.settings.register(MODULE_ID, SETTINGS.SHOW_RADIAL_CLOCK, {

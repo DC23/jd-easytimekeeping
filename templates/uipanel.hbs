@@ -8,7 +8,9 @@
 
 {{log this}}
 <div class="et-time flexcol">
+    {{#if showTimeText}}
     {{> timePartial time=time color=textColor }}
+    {{/if}}
 
     {{#with gameTurnData}}
     <span id="dbtime" class="etk-timeofday flexrow flexshrink" style='color: {{textColor}};'>

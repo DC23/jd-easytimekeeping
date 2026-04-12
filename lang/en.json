@@ -151,5 +151,7 @@
     "JDTIMEKEEPING.Settings.AnalogueClockMinuteHandColor.name": "Analog Clock Minute Hand Color",
     "JDTIMEKEEPING.Settings.AnalogueClockMinuteHandColor.hint": "",
     "JDTIMEKEEPING.Settings.AnalogueClockTickColor.name": "Analog Clock 12-hour Tick Color",
-    "JDTIMEKEEPING.Settings.AnalogueClockTickColor.hint": ""
+    "JDTIMEKEEPING.Settings.AnalogueClockTickColor.hint": "", 
+    "JDTIMEKEEPING.Settings.HideTimeTextWhenAnalogueClockShown.name": "Hide Text Time Display When Analog Clock is Shown",
+    "JDTIMEKEEPING.Settings.HideTimeTextWhenAnalogueClockShown.hint": "If enabled, the time text will be hidden when the analog clock is visible."
     }
