@@ -217,11 +217,14 @@ export function registerSettings () {
     game.settings.register(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_SIZE, {
         name: 'JDTIMEKEEPING.Settings.AnalogueClockSize.name',
         hint: 'JDTIMEKEEPING.Settings.AnalogueClockSize.hint',
-        scope: 'world',
+        scope: 'client',
         config: true,
         type: new foundry.data.fields.NumberField({ min: 50, max: 150, step: 10 }),
         default: 100,
-        requiresReload: true,
+        requiresReload: false,
+        onChange: () => {
+            game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
+        },
     })
 
     game.settings.register(MODULE_ID, SETTINGS.SHIFT_CLOCK_OFFSET, {
