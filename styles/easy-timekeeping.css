@@ -303,6 +303,7 @@
     background: conic-gradient(var(--clock-color) var(--filled-ratio), var(--background) var(--filled-ratio) 1turn);
     border-radius: 50%;
     border: var(--spoke-color) var(--spoke-width) solid;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
 
     position: relative;
 
