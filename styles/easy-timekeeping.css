@@ -350,7 +350,7 @@
   background-color: var(--dial-color);
   box-shadow:
     0 0 0 3px var(--dial-outline-color),   /* thin rim */
-    0 4px 16px var(--dial-drop-shadow-color);  /* soft drop shadow */
+    0 5px 16px var(--dial-drop-shadow-color);  /* soft drop shadow */
   box-sizing: border-box;
 }
  

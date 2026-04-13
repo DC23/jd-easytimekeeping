@@ -293,6 +293,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
                 hourRotation: (this.#time.hours % 12) * 30 + this.#time.minutes * 0.5,
                 minuteRotation: this.#time.minutes * 6,
                 dialColor: UIPanel.#analogueClockDialColor,
+                borderColor: UIPanel.#analogueClockBorderColor,
                 hourHandColor: UIPanel.#analogueClockHourHandColor,
                 minuteHandColor: UIPanel.#analogueClockMinuteHandColor,
                 tickColor: UIPanel.#analogueClockTickColor,
@@ -484,6 +485,10 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
 
     static get #analogueClockDialColor () {
         return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_DIAL_COLOR)
+    }
+
+    static get #analogueClockBorderColor () {
+        return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_BORDER_COLOR)
     }
 
     static get #analogueClockHourHandColor () {
