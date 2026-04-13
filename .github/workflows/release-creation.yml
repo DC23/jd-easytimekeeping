@@ -42,7 +42,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Populate Versioned keys in Manifest
         id: sub_manifest_link_version
