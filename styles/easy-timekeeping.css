@@ -334,6 +334,8 @@
   --hour-rotation:     305deg;
   --minute-rotation:   60deg;
   --dial-color:        rgba(245, 245, 245, 1);
+  --dial-outline-color:  rgba(0, 0, 0, 0.15);
+  --dial-drop-shadow-color: rgba(0, 0, 0, 0.18);
   --hour-hand-color:   rgb(238, 200, 80);
   --minute-hand-color: rgb(238, 200, 80);
   --tick-color:        rgba(0, 0, 0, 0.5);
@@ -347,8 +349,8 @@
   border-radius: 50%;
   background-color: var(--dial-color);
   box-shadow:
-    0 0 0 3px rgba(0, 0, 0, 0.15),   /* thin rim */
-    0 4px 16px rgba(0, 0, 0, 0.18);  /* soft drop shadow */
+    0 0 0 3px var(--dial-outline-color),   /* thin rim */
+    0 4px 16px var(--dial-drop-shadow-color);  /* soft drop shadow */
   box-sizing: border-box;
 }
  
