@@ -20,3 +20,5 @@ template: |
   ## What's Changed
 
   $CHANGES
+
+target-commitish: main
