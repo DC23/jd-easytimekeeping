@@ -45,6 +45,7 @@ export const SETTINGS = {
     SHOW_ANALOGUE_CLOCK: 'showAnalogueClock',
     ANALOGUE_CLOCK_SIZE: 'analogueClockSize',
     ANALOGUE_CLOCK_DIAL_COLOR: 'analogueClockDialColor',
+    ANALOGUE_CLOCK_BORDER_COLOR: 'analogueClockBorderColor',
     ANALOGUE_CLOCK_HOUR_HAND_COLOR: 'analogueClockHourHandColor',
     ANALOGUE_CLOCK_MINUTE_HAND_COLOR: 'analogueClockMinuteHandColor',
     ANALOGUE_CLOCK_TICK_COLOR: 'analogueClockTickColor',
@@ -382,6 +383,19 @@ export function registerSettings () {
         type: new foundry.data.fields.ColorField(),
         default: '#062811',
         // default: '#061128',
+        requiresReload: false,
+        onChange: () => {
+            game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
+        },
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_BORDER_COLOR, {
+        name: 'JDTIMEKEEPING.Settings.AnalogueClockBorderColor.name',
+        hint: 'JDTIMEKEEPING.Settings.AnalogueClockBorderColor.hint',
+        scope: 'client',
+        config: true,
+        type: new foundry.data.fields.ColorField(),
+        default: '#000000',
         requiresReload: false,
         onChange: () => {
             game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
