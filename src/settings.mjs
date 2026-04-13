@@ -114,8 +114,8 @@ export function registerSettings () {
         hint: 'JDTIMEKEEPING.Settings.UIFocusOpacity.hint',
         scope: 'client',
         config: true,
-        type: new foundry.data.fields.NumberField({ min: 0.1, max: 1.0 }),
-        default: 0.85,
+        type: new foundry.data.fields.NumberField({ min: 0.1, max: 1.0, step: 0.05 }),
+        default: 1.0,
         requiresReload: false,
         onChange: () => {
             game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
@@ -127,8 +127,8 @@ export function registerSettings () {
         hint: 'JDTIMEKEEPING.Settings.UIFadeOpacity.hint',
         scope: 'client',
         config: true,
-        type: new foundry.data.fields.NumberField({ min: 0.1, max: 1.0 }),
-        default: 0.6,
+        type: new foundry.data.fields.NumberField({ min: 0.0, max: 1.0, step: 0.05 }),
+        default: 0.7,
         requiresReload: false,
         onChange: () => {
             game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
