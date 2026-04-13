@@ -32,6 +32,11 @@
 #
 name: Release Creation
 
+# Deal with the Node 24 update and the fact that some of these actions are still using earlier versions of Node.
+# See: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   release:
     types: [published]
@@ -42,7 +47,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Populate Versioned keys in Manifest
         id: sub_manifest_link_version
