@@ -173,7 +173,7 @@ export class Timekeeper {
         const oldTime = this.factorTime(this.#totalElapsedMinutes)
         const newTime = this.factorTime(newMinutes)
         console.debug('JD ETime | Current time %o', oldTime)
-        console.log('JD ETime | Incrementing to new time %o', newTime)
+        console.debug('JD ETime | Incrementing to new time %o', newTime)
         this.#setTotalElapsedMinutes(newMinutes)
         return this.#notify(oldTime, newTime)
     }
@@ -191,7 +191,7 @@ export class Timekeeper {
             const oldTime = this.factorTime(this.#totalElapsedMinutes)
             const newTime = this.factorTime(totalMinutes)
             console.debug('JD ETime | Current time %o', oldTime)
-            console.log('JD ETime | Setting new time %o', newTime)
+            console.debug('JD ETime | Setting new time %o', newTime)
             this.#setTotalElapsedMinutes(totalMinutes)
             return this.#notify(oldTime, newTime)
         }
