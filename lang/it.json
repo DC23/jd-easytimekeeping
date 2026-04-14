@@ -155,5 +155,7 @@
     "JDTIMEKEEPING.Settings.HideTimeTextWhenAnalogueClockShown.name": "Hide Text Time Display When Analog Clock is Shown",
     "JDTIMEKEEPING.Settings.HideTimeTextWhenAnalogueClockShown.hint": "If enabled, the time text will be hidden when the analog clock is visible.",
     "JDTIMEKEEPING.Settings.AnalogueClockBorderColor.name": "Analog Clock Border Color",
-    "JDTIMEKEEPING.Settings.AnalogueClockBorderColor.hint": ""
+    "JDTIMEKEEPING.Settings.AnalogueClockBorderColor.hint": "",
+    "JDTIMEKEEPING.Settings.WorldTimeIntegrationEnabled.name": "Enable World Time Integration",
+    "JDTIMEKEEPING.Settings.WorldTimeIntegrationEnabled.hint": "If enabled, Easy Timekeeping will synchronize with Foundry's World Time. This will enable integration with other modules such as Simple Calendar."
 }

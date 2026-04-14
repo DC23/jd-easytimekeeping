@@ -22,7 +22,12 @@ export class Timekeeper {
     }
 
     init () {
-        this.#set(this.#totalElapsedMinutes)
+        if (Timekeeper.#worldTimeEnabled) 
+            this.#set(game.time.worldTime / 60, true) 
+        else
+            this.#set(this.#totalElapsedMinutes, true)
+
+        this.#addWorldTimeListener()
     }
 
     /**
@@ -168,7 +173,7 @@ export class Timekeeper {
         const oldTime = this.factorTime(this.#totalElapsedMinutes)
         const newTime = this.factorTime(newMinutes)
         console.debug('JD ETime | Current time %o', oldTime)
-        console.log('JD ETime | Incrementing to new time %o', newTime)
+        console.debug('JD ETime | Incrementing to new time %o', newTime)
         this.#setTotalElapsedMinutes(newMinutes)
         return this.#notify(oldTime, newTime)
     }
@@ -177,14 +182,16 @@ export class Timekeeper {
      * Private method to actually set the time.
      *
      * @param {number} totalMinutes The total number of minutes since 0:00 on day 0
+     * @param {boolean} force Whether to force the time change even if it's the same as the current time.
      * @returns {timeChangeData} if the time was changed, otherwise `false`.
      */
-    #set (totalMinutes = 0) {
-        if (totalMinutes >= 0) {
+    #set (totalMinutes = 0, force = false) {
+        totalMinutes = Math.trunc(totalMinutes)
+        if (totalMinutes >= 0 && (force || totalMinutes !== this.#totalElapsedMinutes)) {
             const oldTime = this.factorTime(this.#totalElapsedMinutes)
             const newTime = this.factorTime(totalMinutes)
             console.debug('JD ETime | Current time %o', oldTime)
-            console.log('JD ETime | Setting new time %o', newTime)
+            console.debug('JD ETime | Setting new time %o', newTime)
             this.#setTotalElapsedMinutes(totalMinutes)
             return this.#notify(oldTime, newTime)
         }
@@ -259,17 +266,46 @@ export class Timekeeper {
      */
     get #totalElapsedMinutes () {
         return game.settings.get(MODULE_ID, SETTINGS.TOTAL_ELAPSED_MINUTES)
-        // This uses game time
-        // const currentWorldTime = game.time.worldTime
-        // const dayTime = Math.abs(Math.trunc((currentWorldTime % 86400) / 60));
-        // return dayTime
     }
 
     /**
      * Sets the total elapsed ticks since tick 0 on day 0
      */
     async #setTotalElapsedMinutes (minutes) {
+        if (Timekeeper.#worldTimeEnabled) {
+            // update Foundry world time
+            // since the updateWorldTime listener updates our internal time, we need a flag to prevent recursive calls
+            this.block = true
+            await game.time.set(minutes * 60) // convert minutes to seconds for Foundry world time
+            this.block = false
+        }
+
         await game.settings.set(MODULE_ID, SETTINGS.TOTAL_ELAPSED_MINUTES, Math.round(minutes))
+    }
+
+    static get #worldTimeEnabled () {
+        return game.settings.get(MODULE_ID, SETTINGS.WORLD_TIME_INTEGRATION_ENABLED)
+    }
+
+    #addWorldTimeListener () {
+        if (game.user.isGM && Timekeeper.#worldTimeEnabled) {
+            console.debug('JD ETime | Adding world time update listener')
+            Hooks.on('updateWorldTime', this.worldTimeUpdateHandler.bind(this))
+        }
+    }
+
+    worldTimeUpdateHandler (worldTime, dt, options, userId) {
+        if (!this.block) {
+            console.debug(
+                'JD ETime | worldTimeUpdateHandler called with worldTime: %d, dt: %d, options: %o, userId: %s',
+                worldTime,
+                dt,
+                options,
+                userId
+            )
+
+            this.#set(worldTime / 60) // convert seconds to minutes for internal timekeeping
+        }
     }
 
     get #timeChangeMacro () {

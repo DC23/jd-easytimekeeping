@@ -50,6 +50,7 @@ export const SETTINGS = {
     ANALOGUE_CLOCK_MINUTE_HAND_COLOR: 'analogueClockMinuteHandColor',
     ANALOGUE_CLOCK_TICK_COLOR: 'analogueClockTickColor',
     HIDE_TIME_TEXT_WHEN_ANALOGUE_CLOCK_SHOWN: 'hideTimeTextWhenAnalogueClockShown',
+    WORLD_TIME_INTEGRATION_ENABLED: 'worldTimeIntegrationEnabled',
 }
 
 const GM_ONLY_SETTINGS = [
@@ -65,6 +66,7 @@ const GM_ONLY_SETTINGS = [
     SETTINGS.UI_BUTTON_HOVERED_COLOR,
     SETTINGS.UI_BUTTON_CLICKED_COLOR,
     SETTINGS.SHIFT_CLOCK_OFFSET,
+    SETTINGS.WORLD_TIME_INTEGRATION_ENABLED,
 ]
 
 export function registerSettings () {
@@ -134,6 +136,16 @@ export function registerSettings () {
         onChange: () => {
             game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
         },
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.WORLD_TIME_INTEGRATION_ENABLED, {
+        name: 'JDTIMEKEEPING.Settings.WorldTimeIntegrationEnabled.name',
+        hint: 'JDTIMEKEEPING.Settings.WorldTimeIntegrationEnabled.hint',
+        scope: 'world',
+        config: true,
+        type: Boolean,
+        default: false,
+        requiresReload: true,
     })
 
     game.settings.register(MODULE_ID, SETTINGS.SHOW_PLAYERS_EXACT_TIME, {
