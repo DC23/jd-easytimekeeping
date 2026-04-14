@@ -22,7 +22,11 @@ export class Timekeeper {
     }
 
     init () {
-        this.#set(this.#totalElapsedMinutes, true)
+        if (Timekeeper.#worldTimeEnabled) 
+            this.#set(game.time.worldTime / 60, true) 
+        else
+            this.#set(this.#totalElapsedMinutes, true)
+
         this.#addWorldTimeListener()
     }
 
