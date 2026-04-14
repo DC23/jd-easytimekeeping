@@ -22,7 +22,7 @@ export class Timekeeper {
     }
 
     init () {
-        this.#set(this.#totalElapsedMinutes)
+        this.#set(this.#totalElapsedMinutes, true)
         this.#addWorldTimeListener()
     }
 
@@ -178,11 +178,12 @@ export class Timekeeper {
      * Private method to actually set the time.
      *
      * @param {number} totalMinutes The total number of minutes since 0:00 on day 0
+     * @param {boolean} force Whether to force the time change even if it's the same as the current time.
      * @returns {timeChangeData} if the time was changed, otherwise `false`.
      */
-    #set (totalMinutes = 0) {
+    #set (totalMinutes = 0, force = false) {
         totalMinutes = Math.trunc(totalMinutes)
-        if (totalMinutes >= 0 && totalMinutes !== this.#totalElapsedMinutes) {
+        if (totalMinutes >= 0 && (force || totalMinutes !== this.#totalElapsedMinutes)) {
             const oldTime = this.factorTime(this.#totalElapsedMinutes)
             const newTime = this.factorTime(totalMinutes)
             console.debug('JD ETime | Current time %o', oldTime)
