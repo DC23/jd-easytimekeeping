@@ -1,5 +1,5 @@
 /**
- * Dragonbane Timekeeping module registration functions
+ * Easy Timekeeping module registration functions
  *
  */
 import { registerKeybindings, registerSettings, MODULE_ID, SETTINGS } from './settings.mjs'
