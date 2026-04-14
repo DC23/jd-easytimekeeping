@@ -181,7 +181,8 @@ export class Timekeeper {
      * @returns {timeChangeData} if the time was changed, otherwise `false`.
      */
     #set (totalMinutes = 0) {
-        if (totalMinutes >= 0) {
+        totalMinutes = Math.trunc(totalMinutes)
+        if (totalMinutes >= 0 && totalMinutes !== this.#totalElapsedMinutes) {
             const oldTime = this.factorTime(this.#totalElapsedMinutes)
             const newTime = this.factorTime(totalMinutes)
             console.debug('JD ETime | Current time %o', oldTime)
