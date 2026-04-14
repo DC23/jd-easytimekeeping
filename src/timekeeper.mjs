@@ -267,17 +267,23 @@ export class Timekeeper {
      * Sets the total elapsed ticks since tick 0 on day 0
      */
     async #setTotalElapsedMinutes (minutes) {
-        // update Foundry world time
-        // since the updateWorldTime listener updates our internal time, we need a flag to prevent recursive calls
-        this.block = true
-        await game.time.set(minutes * 60) // convert minutes to seconds for Foundry world time
-        this.block = false
+        if (Timekeeper.#worldTimeEnabled) {
+            // update Foundry world time
+            // since the updateWorldTime listener updates our internal time, we need a flag to prevent recursive calls
+            this.block = true
+            await game.time.set(minutes * 60) // convert minutes to seconds for Foundry world time
+            this.block = false
+        }
 
         await game.settings.set(MODULE_ID, SETTINGS.TOTAL_ELAPSED_MINUTES, Math.round(minutes))
     }
 
+    static get #worldTimeEnabled () {
+        return game.settings.get(MODULE_ID, SETTINGS.WORLD_TIME_INTEGRATION_ENABLED)
+    }
+
     #addWorldTimeListener () {
-        if (game.user.isGM) {
+        if (game.user.isGM && Timekeeper.#worldTimeEnabled) {
             console.debug('JD ETime | Adding world time update listener')
             Hooks.on('updateWorldTime', this.worldTimeUpdateHandler.bind(this))
         }
