@@ -1,0 +1,21 @@
+type: Macro
+folder: null
+name: Real Time Synchronisation
+color: null
+sorting: a
+_id: DnpzQD38Zc76036i
+description: ''
+sort: 0
+flags: {}
+_stats:
+  coreVersion: '14.360'
+  systemId: ose
+  systemVersion: 2.1.15
+  createdTime: 1776320569645
+  modifiedTime: 1776320569645
+  lastModifiedBy: 8NIcTpJ3QR1Fa2De
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_key: '!folders!DnpzQD38Zc76036i'
+

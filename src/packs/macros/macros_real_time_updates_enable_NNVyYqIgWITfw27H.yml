@@ -1,0 +1,64 @@
+name: real-time-updates-enable
+type: script
+_id: NNVyYqIgWITfw27H
+author: 8NIcTpJ3QR1Fa2De
+img: icons/svg/wingfoot.svg
+scope: global
+command: >-
+  function startRealTimeSync(intervalSeconds, callback) {
+    // Stop any existing interval, valid or stale - always safe
+    const existingId = game.user.getFlag('jd-easytimekeeping', 'real-time-interval-id')
+    if (existingId) clearInterval(existingId)
+
+    const intervalId = setInterval(() => {
+      const now = new Date()
+      callback(now.getHours(), now.getMinutes())
+    }, intervalSeconds * 1000)
+
+    game.user.setFlag('jd-easytimekeeping', 'real-time-interval-id', intervalId)
+  }
+
+
+  // How often the time is updated. Since Easy Timekeeping doesn't display
+  seconds, 
+
+  // there's little benefit when UPDATE_INTERVAL_SECONDS *
+  GAME_TO_REAL_TIME_RATIO < 60 
+
+  const UPDATE_INTERVAL_SECONDS = 10
+
+
+  // the ratio of game time to real time.
+
+  // With this value of 6 and the update interval of 10, the result is that game
+  time advances 
+
+  // 1 minute (6 * 10 = 60 seconds) every 10 seconds
+
+  const GAME_TO_REAL_TIME_RATIO = 6  
+
+
+  startRealTimeSync(UPDATE_INTERVAL_SECONDS, (hours, minutes) => {
+    //console.log("Real time update: %d:%d", hours, minutes)
+    const incrementalMinutes = GAME_TO_REAL_TIME_RATIO * UPDATE_INTERVAL_SECONDS / 60
+    console.log("Incrementing minutes by %d", incrementalMinutes)
+    game.modules.get('jd-easytimekeeping').api.increment({minutes: incrementalMinutes})
+  })
+folder: DnpzQD38Zc76036i
+ownership:
+  default: 0
+  8NIcTpJ3QR1Fa2De: 3
+flags: {}
+_stats:
+  coreVersion: '14.360'
+  systemId: ose
+  systemVersion: 2.1.15
+  createdTime: 1776320607156
+  modifiedTime: 1776320720980
+  lastModifiedBy: 8NIcTpJ3QR1Fa2De
+  exportSource: null
+  compendiumSource: null
+  duplicateSource: null
+sort: 0
+_key: '!macros!NNVyYqIgWITfw27H'
+
