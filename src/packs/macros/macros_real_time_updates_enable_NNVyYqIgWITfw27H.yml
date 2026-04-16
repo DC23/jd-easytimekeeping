@@ -5,6 +5,34 @@ author: 8NIcTpJ3QR1Fa2De
 img: icons/svg/wingfoot.svg
 scope: global
 command: >-
+  /*
+
+  This macro will begin updating the Easy Timekeeping time based on the real
+  time.
+
+  Note that it doesn't pause for combat or the Game Paused feature. Those will
+
+  have to wait for a future in-module implementation.
+
+
+  Disable the updates by running the `real-time-updates-disable` macro, 
+
+  or by reloading your Foundry session.
+
+
+  Power-users can control the speed of updates and the ratio of real to game
+  time
+
+  with the variables UPDATE_INTERVAL_SECONDS and GAME_TO_REAL_TIME_RATIO. 
+
+  These should multiply to an integer multiple of 60 for the best results, due
+  to how 
+
+  the module works internally.
+
+  */
+
+
   function startRealTimeSync(intervalSeconds, callback) {
     // Stop any existing interval, valid or stale - always safe
     const existingId = game.user.getFlag('jd-easytimekeeping', 'real-time-interval-id')
@@ -38,6 +66,27 @@ command: >-
   const GAME_TO_REAL_TIME_RATIO = 6  
 
 
+  // Game time advances at 4 x real time:
+
+  // const UPDATE_INTERVAL_SECONDS = 15
+
+  // const GAME_TO_REAL_TIME_RATIO = 4
+
+
+  // Game time advances at twice real time:
+
+  // const UPDATE_INTERVAL_SECONDS = 30
+
+  // const GAME_TO_REAL_TIME_RATIO = 2
+
+
+  // Game time advances at the same rate as real time:
+
+  // const UPDATE_INTERVAL_SECONDS = 60
+
+  // const GAME_TO_REAL_TIME_RATIO = 1
+
+
   startRealTimeSync(UPDATE_INTERVAL_SECONDS, (hours, minutes) => {
     //console.log("Real time update: %d:%d", hours, minutes)
     const incrementalMinutes = GAME_TO_REAL_TIME_RATIO * UPDATE_INTERVAL_SECONDS / 60
@@ -54,7 +103,7 @@ _stats:
   systemId: ose
   systemVersion: 2.1.15
   createdTime: 1776320607156
-  modifiedTime: 1776320720980
+  modifiedTime: 1776321551108
   lastModifiedBy: 8NIcTpJ3QR1Fa2De
   exportSource: null
   compendiumSource: null

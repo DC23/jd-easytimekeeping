@@ -5,6 +5,10 @@ author: 8NIcTpJ3QR1Fa2De
 img: icons/svg/cancel.svg
 scope: global
 command: |-
+  /*
+  This macro disables the real time updates feature.
+  */
+
   function stopRealTimeSync() {
      intervalId = game.user.getFlag('jd-easytimekeeping', 'real-time-interval-id')
      if (intervalId) {
@@ -25,7 +29,7 @@ _stats:
   systemId: ose
   systemVersion: 2.1.15
   createdTime: 1776320603592
-  modifiedTime: 1776320712012
+  modifiedTime: 1776320981743
   lastModifiedBy: 8NIcTpJ3QR1Fa2De
   exportSource: null
   compendiumSource: null
