@@ -274,10 +274,10 @@ export class Timekeeper {
     async #setTotalElapsedMinutes (minutes) {
         if (Timekeeper.#worldTimeEnabled) {
             // update Foundry world time
-            // since the updateWorldTime listener updates our internal time, we need a flag to prevent recursive calls
-            this.block = true
+            // prevent infinite recursion with a flag
+            this.blockWorldTimeUpdateHandling = true
             await game.time.set(minutes * 60) // convert minutes to seconds for Foundry world time
-            this.block = false
+            this.blockWorldTimeUpdateHandling = false
         }
 
         await game.settings.set(MODULE_ID, SETTINGS.TOTAL_ELAPSED_MINUTES, Math.round(minutes))
@@ -295,7 +295,7 @@ export class Timekeeper {
     }
 
     worldTimeUpdateHandler (worldTime, dt, options, userId) {
-        if (!this.block) {
+        if (!this.blockWorldTimeUpdateHandling) {
             console.debug(
                 'JD ETime | worldTimeUpdateHandler called with worldTime: %d, dt: %d, options: %o, userId: %s',
                 worldTime,
