@@ -6,6 +6,7 @@ import { MODULE_ID, SETTINGS } from './settings.mjs'
 import { Helpers } from './helpers.mjs'
 import { SetTimeApplication } from './settimeapp.mjs'
 import { Constants } from './constants.mjs'
+import { DaylightCycle, PHASES } from './daylightcycle.mjs'
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api
 
 export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
@@ -298,6 +299,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
                 minuteHandColor: UIPanel.#analogueClockMinuteHandColor,
                 tickColor: UIPanel.#analogueClockTickColor,
                 hoverText: Helpers.toTimeString(this.#time, UIPanel.#showLongFormatTime),
+                dialImage: UIPanel.#analogClockBGImage(this.#time),
             },
         }
 
@@ -531,6 +533,21 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
 
     static get #analogueClockSize () {
         return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_SIZE)
+    }
+
+    static #analogClockBGImage(time) {
+        const phase = DaylightCycle.detectPhase(time)
+        switch (phase) {
+            case PHASES.DAY:
+                return '../images/Day.png'
+            case PHASES.DAWN:
+                // return '../images/Dawn.png'
+                return '../images/Dusk.png'
+            case PHASES.DUSK:
+                return '../images/Dusk.png'
+            case PHASES.NIGHT:
+                return '../images/Night.png'
+        }
     }
 
     static get floatingPanel () {
