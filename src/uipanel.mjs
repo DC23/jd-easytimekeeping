@@ -539,14 +539,13 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
         const phase = DaylightCycle.detectPhase(time)
         switch (phase) {
             case PHASES.DAY:
-                return '../images/Day.png'
+                return '../images/day.png'
             case PHASES.DAWN:
-                // return '../images/Dawn.png'
-                return '../images/Dusk.png'
+                return '../images/dawn.png'
             case PHASES.DUSK:
-                return '../images/Dusk.png'
+                return '../images/dusk.png'
             case PHASES.NIGHT:
-                return '../images/Night.png'
+                return '../images/night.png'
         }
     }
 
