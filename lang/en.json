@@ -157,5 +157,7 @@
     "JDTIMEKEEPING.Settings.AnalogueClockBorderColor.name": "Analog Clock Border Color",
     "JDTIMEKEEPING.Settings.AnalogueClockBorderColor.hint": "",
     "JDTIMEKEEPING.Settings.WorldTimeIntegrationEnabled.name": "Enable World Time Integration",
-    "JDTIMEKEEPING.Settings.WorldTimeIntegrationEnabled.hint": "If enabled, Easy Timekeeping will synchronize with Foundry's World Time. This will enable integration with other modules such as Simple Calendar."
+    "JDTIMEKEEPING.Settings.WorldTimeIntegrationEnabled.hint": "If enabled, Easy Timekeeping will synchronize with Foundry's World Time. This will enable integration with other modules such as Simple Calendar.",
+    "JDTIMEKEEPING.Settings.AnalogueClockDialImage.name": "Analog Clock Background Image",
+    "JDTIMEKEEPING.Settings.AnalogueClockDialImage.hint": "If enabled, the background of the analog clock will change based on the time of day."
     }
