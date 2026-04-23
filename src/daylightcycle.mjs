@@ -53,7 +53,7 @@ export class DaylightCycle {
         if (!DaylightCycle.#enabled || !canvas.scene) return
 
         try {
-            switch (DaylightCycle.#detectPhase(time)) {
+            switch (DaylightCycle.detectPhase(time)) {
                 case PHASES.DAWN:
                     DaylightCycle.#processDawn(time)
                     break
@@ -80,7 +80,7 @@ export class DaylightCycle {
      * @returns {string} the localised name of the day phase. This is one of the set [Dawn, Day, Dusk, Night]
      */
     static getPhaseOfDay (time) {
-        switch (DaylightCycle.#detectPhase(time)) {
+        switch (DaylightCycle.detectPhase(time)) {
             case PHASES.DAWN:
                 return game.i18n.localize('JDTIMEKEEPING.Time.Dawn')
             default:
@@ -99,7 +99,7 @@ export class DaylightCycle {
      * @param {import('./datatypes.mjs').time} time
      * @returns {PHASES} the daylight cycle phase for the given time
      */
-    static #detectPhase (time) {
+    static detectPhase (time) {
         /**
          * Internally, work with the JS Date object since it's much
          * less error prone and will handle all the edge cases for us

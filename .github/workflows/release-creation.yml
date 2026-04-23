@@ -80,7 +80,7 @@ jobs:
           # doesn't exist, it will not fail.
           zip --recurse-paths ./module.zip \
             module.json LICENSE \
-            lang/ packs/ src/ styles/ templates/
+            lang/ packs/ src/ styles/ templates/ images/
 
       # Create a release for this specific version
       - name: Update Release with Files
