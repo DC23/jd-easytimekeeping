@@ -112,6 +112,7 @@ I'd like to thank a few projects and communities, without whom this project prob
 - The equally fantastic (and occassionally the same) people at the Foundry VTT Discord. Without the technical help in the `#macro-polo`, `#module-development`, and `#system-development` channels I'd be cowering under my desk by now.
 - The devs of [Global Progress Clocks](https://github.com/CarlosFdez/global-progress-clocks). Thanks to the magic of MIT licencing I've adapted the radial clocks right into this module.
 - The devs of [SmallTime](https://github.com/unsoluble/smalltime). While I've not used any of the code, I've drawn a lot of inspiration from the UI of SmallTime.
+- I've used [Seamless Sky Backgrounds](https://screamingbrainstudios.itch.io/seamless-sky-backgrounds), which the designer graciously released under the CC0 licence.
 
 ### What Was That About SmallTime?
 
