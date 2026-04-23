@@ -299,7 +299,7 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
                 minuteHandColor: UIPanel.#analogueClockMinuteHandColor,
                 tickColor: UIPanel.#analogueClockTickColor,
                 hoverText: Helpers.toTimeString(this.#time, UIPanel.#showLongFormatTime),
-                dialImage: UIPanel.#analogClockBGImage(this.#time),
+                dialImage: UIPanel.#analogueClockDialImageEnabled ? UIPanel.#analogClockBGImage(this.#time) : null,
             },
         }
 
@@ -533,6 +533,10 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
 
     static get #analogueClockSize () {
         return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_SIZE)
+    }
+
+    static get #analogueClockDialImageEnabled () {
+        return game.settings.get(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_DIAL_IMAGE)
     }
 
     static #analogClockBGImage(time) {

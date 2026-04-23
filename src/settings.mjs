@@ -45,6 +45,7 @@ export const SETTINGS = {
     SHOW_ANALOGUE_CLOCK: 'showAnalogueClock',
     ANALOGUE_CLOCK_SIZE: 'analogueClockSize',
     ANALOGUE_CLOCK_DIAL_COLOR: 'analogueClockDialColor',
+    ANALOGUE_CLOCK_DIAL_IMAGE: 'analogueClockDialImage',
     ANALOGUE_CLOCK_BORDER_COLOR: 'analogueClockBorderColor',
     ANALOGUE_CLOCK_HOUR_HAND_COLOR: 'analogueClockHourHandColor',
     ANALOGUE_CLOCK_MINUTE_HAND_COLOR: 'analogueClockMinuteHandColor',
@@ -225,6 +226,19 @@ export function registerSettings () {
         type: Boolean,
         default: false,
         requiresReload: true,
+    })
+
+    game.settings.register(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_DIAL_IMAGE, {
+        name: 'JDTIMEKEEPING.Settings.AnalogueClockDialImage.name',
+        hint: 'JDTIMEKEEPING.Settings.AnalogueClockDialImage.hint',
+        scope: 'world',
+        config: true,
+        type: Boolean,
+        default: true,
+        requiresReload: false,
+        onChange: () => {
+            game.modules.get(MODULE_ID).uiPanel?.cosmeticSettingsChanged()
+        },
     })
 
     game.settings.register(MODULE_ID, SETTINGS.ANALOGUE_CLOCK_SIZE, {
