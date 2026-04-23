@@ -340,6 +340,7 @@
   --hour-hand-color:   rgb(238, 200, 80);
   --minute-hand-color: rgb(238, 200, 80);
   --tick-color:        rgba(0, 0, 0, 0.5);
+  --dial-image:        none;
 }
  
 /* Clock face */
@@ -348,7 +349,9 @@
   width:  var(--size);
   height: var(--size);
   border-radius: 50%;
-  background-color: var(--dial-color);
+  /* background-color: var(--dial-color); */
+  background: var(--dial-image) center/cover no-repeat,
+              var(--dial-color);
   box-shadow:
     0 0 0 3px var(--dial-outline-color),   /* thin rim */
     0 5px 16px var(--dial-drop-shadow-color);  /* soft drop shadow */
