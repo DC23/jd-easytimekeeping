@@ -183,6 +183,13 @@ export class UIPanel extends HandlebarsApplicationMixin(ApplicationV2) {
         }
     }
 
+    async close (options = {}) {
+        // closeKey is set when the close is triggered by the ESC key,
+        // which is the one case we want to ignore.
+        if (options.closeKey) return this
+        return super.close(options)
+    }
+
     #prepareClocks (time) {
         // prep the time data
 
