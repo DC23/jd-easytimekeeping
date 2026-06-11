@@ -21,18 +21,6 @@
   margin-right: 10px;
 }
 
-.form-inline {
-  display: flex;
-  flex-flow: row wrap;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-.form-inline label {
-  display: inline-block;
-  align-items: center;
-  margin: 5px 10px 5px 0;
-}
 
 .form-row {
   margin: 5px;
@@ -52,74 +40,16 @@
   pointer-events: initial;
 }
 
-.flex-group-center,
-.flex-group-left,
-.flex-group-right {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-align: center;
-}
-
-.flex-group-left {
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.flex-group-right {
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  text-align: right;
-}
 
 .flexshrink {
-  -webkit-box-flex: 0;
-  -ms-flex: 0;
   flex: 0 1;
 }
 
-.flex-between {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.flexlarge {
-  -webkit-box-flex: 2;
-  -ms-flex: 2;
-  flex: 2;
-}
 
 .flex-align-center {
   align-self: center;
 }
 
-.align-left {
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  text-align: left;
-}
-
-.align-right {
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  text-align: right;
-}
-
-.align-center {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
-}
 
 .hidden {
   display: none;
@@ -212,44 +142,11 @@
  */
 .etk-timeofday {
   margin-bottom: 5px;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   text-align: center;
   overflow-wrap: break-word;
 }
 
-/**
- * Tooltips
- * Usage:
- * <span class="hovertext" data-hover="this is the tooltip">
- */
-.hovertext {
-  position: relative;
-}
-
-.hovertext:before {
-  content: attr(data-hover);
-  visibility: hidden;
-  opacity: 0;
-  width: max-content;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 5px;
-  padding: 5px 10px 5px 10px;
-  transition: opacity 1s ease-in-out;
-
-  position: absolute;
-  z-index: 100;
-  left: 0;
-  bottom: 1.2em;
-}
-
-.hovertext:hover:before {
-  opacity: 1;
-  visibility: visible;
-}
 
 /**
  * Styles grafted from Global Progress Clocks are below here.
