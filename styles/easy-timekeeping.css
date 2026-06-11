@@ -251,6 +251,11 @@
   visibility: visible;
 }
 
+.hovertext.hovertext-flip:before {
+  left: unset;
+  right: 0;
+}
+
 /**
  * Styles grafted from Global Progress Clocks are below here.
  * They control the circular clocks used to display Dragonbane time.
