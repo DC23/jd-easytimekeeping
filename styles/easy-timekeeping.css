@@ -76,7 +76,7 @@
 
   display: flex;
   justify-content: center;
-  flex:0 3;
+  flex: 0 3;
   width: 200px;
 }
 
@@ -96,7 +96,8 @@
 
 [id^=jd-et-uipanel] .window-content {
   background: var(--background-color);
-  padding: 0.5rem; /*  It inherits 1rem, but it's too much. */ 
+  padding: 0.5rem;
+  /*  It inherits 1rem, but it's too much. */
 }
 
 /*End*/
@@ -128,12 +129,12 @@
   i:hover {
     color: var(--hover-color);
     transform: scale(1.4);
-    /* box-shadow: 0 0 4px rgba(35, 234, 0, 0.941); */
   }
 
   i:active {
     color: var(--click-color);
-    transform: scale(1.4);
+    transform: scale(0.9);
+    text-shadow: 0 0 8px var(--color);
   }
 }
 
@@ -228,84 +229,89 @@
 
 /* The defaults to the classic 10:10 position, and indicate the variables exposed via the HBS template to the JS logic. */
 .clock {
-  --size:              200px;
-  --hour-rotation:     305deg;
-  --minute-rotation:   60deg;
-  --dial-color:        rgba(245, 245, 245, 1);
-  --dial-outline-color:  rgba(0, 0, 0, 0.15);
+  --size: 200px;
+  --hour-rotation: 305deg;
+  --minute-rotation: 60deg;
+  --dial-color: rgba(245, 245, 245, 1);
+  --dial-outline-color: rgba(0, 0, 0, 0.15);
   --dial-drop-shadow-color: rgba(0, 0, 0, 0.18);
-  --hour-hand-color:   rgb(238, 200, 80);
+  --hour-hand-color: rgb(238, 200, 80);
   --minute-hand-color: rgb(238, 200, 80);
-  --tick-color:        rgba(0, 0, 0, 0.5);
-  --dial-image:        none;
+  --tick-color: rgba(0, 0, 0, 0.5);
+  --dial-image: none;
 }
- 
+
 /* Clock face */
 .clock {
   position: relative;
-  width:  var(--size);
+  width: var(--size);
   height: var(--size);
   border-radius: 50%;
   /* background-color: var(--dial-color); */
   background: var(--dial-image) center/cover no-repeat,
-              var(--dial-color);
+    var(--dial-color);
   box-shadow:
-    0 0 0 3px var(--dial-outline-color),   /* thin rim */
-    0 5px 16px var(--dial-drop-shadow-color);  /* soft drop shadow */
+    0 0 0 3px var(--dial-outline-color),
+    /* thin rim */
+    0 5px 16px var(--dial-drop-shadow-color);
+  /* soft drop shadow */
   box-sizing: border-box;
 }
- 
+
 /* 12 o'clock tick (top), used as reference marker */
 .clock::before {
   content: "";
   position: absolute;
-  top:   calc(var(--size) * 0.04);
-  left:  50%;
+  top: calc(var(--size) * 0.04);
+  left: 50%;
   transform: translateX(-50%);
-  width:  2px;
+  width: 2px;
   height: calc(var(--size) * 0.05);
   border-radius: 1px;
   background-color: var(--tick-color);
 }
- 
+
 /* Centre pivot */
 .clock::after {
   content: "";
   position: absolute;
-  top:  50%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width:  8px;
+  width: 8px;
   height: 8px;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.75);
   z-index: 10;
 }
- 
+
 /* Shared hand styles */
 .clock__hand {
   position: absolute;
-  bottom:   50%;          /* hands grow upward from the centre */
-  left:     50%;
+  bottom: 50%;
+  /* hands grow upward from the centre */
+  left: 50%;
   transform-origin: bottom center;
   border-radius: 2px 2px 0 0;
 }
- 
+
 /* Hour hand */
 .clock__hand--hour {
-  width:  5px;
+  width: 5px;
   height: calc(var(--size) * 0.275);
-  margin-left: -2.5px;   /* centre on the pivot (half of width) */
+  margin-left: -2.5px;
+  /* centre on the pivot (half of width) */
   background-color: var(--hour-hand-color);
   transform: rotate(var(--hour-rotation));
   z-index: 3;
 }
- 
+
 /* Minute hand */
 .clock__hand--minute {
-  width:  3px;
+  width: 3px;
   height: calc(var(--size) * 0.375);
-  margin-left: -1.5px;   /* centre on the pivot (half of width) */
+  margin-left: -1.5px;
+  /* centre on the pivot (half of width) */
   background-color: var(--minute-hand-color);
   transform: rotate(var(--minute-rotation));
   z-index: 2;
